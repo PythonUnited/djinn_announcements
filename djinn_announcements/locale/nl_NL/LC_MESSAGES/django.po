@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: djinn_announcements\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-03-25 13:45+0100\n"
+"PO-Revision-Date: 2013-03-25 13:45+0100\n"
+"Last-Translator: Duco Dokter <dokter@w20e.com>\n"
+"Language-Team: Djinn <djinn@pythonunited.com>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+
+#: settings.py:3
+msgid "Open"
+msgstr "Net gemeld"
+
+#: settings.py:3
+msgid "Closed"
+msgstr "Opgelost"
+
+#: settings.py:6
+msgid "In progress"
+msgstr "Wordt aan gewerkt"
+
+#: forms/serviceannouncement.py:10
+#: models/serviceannouncement.py:13
+msgid "Start date"
+msgstr "Startdatum"
+
+#: forms/serviceannouncement.py:17
+#: models/serviceannouncement.py:14
+msgid "(Expected) end date"
+msgstr "(Verwachtte) einddatum"
+
+#: forms/serviceannouncement.py:25
+#: models/announcement.py:14
+msgid "Status"
+msgstr "Status"
+
+#: forms/serviceannouncement.py:30
+msgid "Description"
+msgstr "Korte uitleg"
+
+#: models/announcement.py:12
+msgid "Title"
+msgstr "Titel"
+
+#: models/announcement.py:13
+#: models/announcementupdate.py:9
+msgid "Text"
+msgstr "Tekst"
+
+#: models/announcement.py:28
+#: models/announcement.py:29
+msgid "Announcement"
+msgstr "Aankondiging"
+
+#: models/announcement.py:32
+msgid "Announcements"
+msgstr "Aankondigingen"
+
+#: models/announcement.py:33
+msgid "announcements"
+msgstr "aankondigingen"
+
+#: models/announcementupdate.py:8
+msgid "Date"
+msgstr "Datum"
+
+#: models/serviceannouncement.py:29
+#: models/serviceannouncement.py:30
+msgid "ServiceAnnouncement"
+msgstr "Storing of werkzaamheid"
+
+#: models/serviceannouncement.py:34
+msgid "ServiceAnnouncements"
+msgstr "Storingen of werkzaamheden"
+
+#: models/serviceannouncement.py:35
+msgid "serviceannouncements"
+msgstr "storingen of werkzaamheden"
+

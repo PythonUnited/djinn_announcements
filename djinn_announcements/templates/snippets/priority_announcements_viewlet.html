@@ -1,0 +1,21 @@
+{% if view.announcements %}
+
+<section id="priority-announcements">
+  
+  {% for announcement in view.announcements %}
+  <div class="alert">
+    <h2>{{ announcement.title }}</h2>
+    <time>{{ announcement.start_date }}</time>
+    {{ announcement.text|safe }}
+
+    {% for update in announcement.updates.all %}
+    <div class="announcementupdate">
+      <time>{{ update.date }}</time>
+      {{ update.text|safe }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+</section>
+{% endif %}
