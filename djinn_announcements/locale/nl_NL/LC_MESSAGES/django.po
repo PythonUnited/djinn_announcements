@@ -78,13 +78,13 @@ msgstr "Datum"
 #: models/serviceannouncement.py:29
 #: models/serviceannouncement.py:30
 msgid "ServiceAnnouncement"
-msgstr "Storing of werkzaamheid"
+msgstr "Storing/werkzaamheid"
 
 #: models/serviceannouncement.py:34
 msgid "ServiceAnnouncements"
-msgstr "Storingen of werkzaamheden"
+msgstr "Storingen/werkzaamheden"
 
 #: models/serviceannouncement.py:35
 msgid "serviceannouncements"
-msgstr "storingen of werkzaamheden"
+msgstr "storingen/werkzaamheden"
 

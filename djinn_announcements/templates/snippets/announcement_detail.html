@@ -8,11 +8,24 @@
   <h2>{{ object.title }}</h2>
 </header>
 
-<p>{{ object.text|wordwrap:80 }}</p>
+{{ object.text|safe|wordwrap:80 }}
 
 <dl>
   <dt>Geplaatst op:</dt><dd>{{ object.created }}</dd>
   <dt>Auteur:</dt><dd>{{ object.creator.get_profile }}</dd>
 </dl>
+
+{% if object.updates.all.exists %}  
+<section id="updates">
+  <header>
+    <h2>Updates</h2>
+  </header>
+
+  <span id="update_list">
+    {% include "snippets/updates.html" %}
+  </span>
+
+</section>
+{% endif %}  
 
 {% endblock %}

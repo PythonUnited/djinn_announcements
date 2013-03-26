@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from djinn_announcements.models.announcement import Announcement
+from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 
 
 class AnnouncementViewlet(TemplateView):
@@ -16,7 +17,17 @@ class AnnouncementViewlet(TemplateView):
 
     def announcements(self, limit=5):
 
-        return Announcement.objects.filter(priority=0)[:limit]
+        _announcements = []
+
+        for announcement in Announcement.objects.filter(priority=0):
+            try:
+                announcement.serviceannouncement
+            except:
+                _announcements.append(announcement)
+            if len(_announcements) >= limit:
+                break
+
+        return _announcements
 
 
 class PriorityAnnouncementViewlet(AnnouncementViewlet):
@@ -26,3 +37,12 @@ class PriorityAnnouncementViewlet(AnnouncementViewlet):
     def announcements(self, limit=1):
 
         return Announcement.objects.filter(priority=1)[:limit]
+
+
+class ServiceAnnouncementViewlet(AnnouncementViewlet):
+
+    template_name = "snippets/service_announcements_viewlet.html"
+
+    def announcements(self, limit=5):
+
+        return ServiceAnnouncement.objects.all()[:limit]

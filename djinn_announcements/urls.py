@@ -7,13 +7,13 @@ from views.announcementupdate import AnnouncementUpdateCreateView, \
 from views.announcement import AnnouncementCreateView, AnnouncementDetailView, \
     AnnouncementUpdateView, AnnouncementDeleteView
 from views.announcementviewlet import AnnouncementViewlet, \
-    PriorityAnnouncementViewlet
+    PriorityAnnouncementViewlet, ServiceAnnouncementViewlet
 
 
 _urlpatterns = patterns(
     "",
              
-    url(r"^serviceannouncement/(?P<pk>[\d]+)/?",
+    url(r"^serviceannouncement/(?P<pk>[\d]+)/(?P<slug>[^\/]+)/?",
         ServiceAnnouncementDetailView.as_view(),
         name="djinn_announcements_view_serviceannouncement"),
     
@@ -67,6 +67,10 @@ _urlpatterns = patterns(
     url(r"^priority$",
         PriorityAnnouncementViewlet.as_view(),
         name="djinn_priority_announcements"),
+    
+    url(r"^service$",
+        ServiceAnnouncementViewlet.as_view(),
+        name="djinn_service_announcements"),
     )
 
 urlpatterns = patterns('',

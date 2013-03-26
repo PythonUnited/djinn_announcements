@@ -24,6 +24,7 @@ class ServiceAnnouncementForm(forms.ModelForm):
                                      )
     
     status = forms.IntegerField(label=_("Status"),
+                                required=False,
                                 initial=-1,
                                 widget=forms.Select(
             choices=SERVICEANNOUNCEMENT_STATUS_VOCAB)

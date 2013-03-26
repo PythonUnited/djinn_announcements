@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<section id="announcements" class="editmode">
+  
+  <header>
+    <h2>Storingen/werkzaamheden</h2>
+  </header>
+  
+  {% include "snippets/serviceannouncements.html" with announcements=view.announcements %}
+
+</section>

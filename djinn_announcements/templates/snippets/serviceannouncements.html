@@ -1,0 +1,25 @@
+{% load humanize %}
+
+<ul id="announcementlist"
+    {% if announcements|length = 0 %}class="hide"{% endif %}
+>
+  {% for announcement in announcements %}
+  <li>
+    <a data-target="#MyModal"
+       href="{% url djinn_announcements_view_serviceannouncement announcement.id announcement.slug %}"
+       data-toggle="modal">
+      {{ announcement.title_slice }}
+      {{ announcement.status }}
+    </a>
+    {{ announcement.start_date }} {% if announcement.end_date %}- {% endif %}{{ announcement.end_date }}
+  </li>
+  {% endfor %}
+</ul>
+
+{% if announcements|length = 0 %}
+
+<div class="alert alert-info" id="announcements-alert">
+  Er zijn geen mededelingen.
+</div>
+
+{% endif %}

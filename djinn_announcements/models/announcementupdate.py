@@ -12,3 +12,4 @@ class AnnouncementUpdate(models.Model):
 
     class Meta:
         app_label = 'djinn_announcements'
+        ordering = ('-date', )

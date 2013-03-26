@@ -10,7 +10,7 @@ class ServiceAnnouncement(Announcement):
     """ Announcement of 'servicing' or disturbance. Should show
     expected end date"""
 
-    start_date = models.DateTimeField(_('Start date'), auto_now_add=True)
+    start_date = models.DateTimeField(_('Start date'))
     end_date = models.DateTimeField(_('(Expected) end date'), null=True,
                                       blank=True, default=None)
     
