@@ -8,7 +8,7 @@
 {% block item-class %}serviceannouncement{% endblock %}
 
 {% block title %}
-<a href="{% url djinn_announcements_view_serviceannouncement pk=modelinstance.pk %}">
+<a href="{% url djinn_announcements_view_serviceannouncement pk=modelinstance.pk slug=modelinstance.slug %}">
   {{ modelinstance.title|truncatechars:80 }}
 </a>
 {% endblock %}

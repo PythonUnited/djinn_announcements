@@ -1,8 +1,8 @@
 {% load auth_tags %}
 
 <div class="editable">
-  <div>{{ object.date }}</div>
-  <div>{{ object.text|safe }}</div>
+  <time>{{ object.date }}</time>
+  {{ object.text|safe }}
 
   {% has_permission object request.user contenttypes.change_contenttype %}  
   <span class="controls pull-right">

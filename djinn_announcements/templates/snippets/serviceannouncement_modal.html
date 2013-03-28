@@ -2,7 +2,7 @@
 {% load contentaction_tags %}
 
 <header>
-  <h1>{{ object.title }}</h1>
+  <h3>{{ object.title }}</h3>
 </header>
 
 {{ object.text|default:""|safe }}
@@ -13,7 +13,7 @@
   <dt>Status</dt><dd>{{ object.status }}</dd>
 </dl>
 
-{% if object.announcementupdates.all.exists %}  
+{% if object.updates.all.exists %}  
 <section id="updates">
   <header>
     <h2>Updates
@@ -28,7 +28,7 @@
   </header>
 
   <span id="update_list">
-    {% include "djinn_announcements/snippets/updates.html" %}
+    {% include "snippets/updates.html" %}
   </span>
 
 </section>
