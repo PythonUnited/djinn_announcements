@@ -21,6 +21,13 @@ class ServiceAnnouncementDetailView(PGDetailView):
 
     model = ServiceAnnouncement
 
+    def get_template_names(self):
+
+        if self.request.GET.get("modal", False):
+            return ["snippets/serviceannouncement_modal.html"]
+        else:
+            return ["serviceannouncement_detail.html"]
+        
 
 class ServiceAnnouncementDeleteView(PGDeleteView):
 

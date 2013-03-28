@@ -16,7 +16,7 @@ _urlpatterns = patterns(
     url(r"^serviceannouncement/(?P<pk>[\d]+)/(?P<slug>[^\/]+)/?",
         ServiceAnnouncementDetailView.as_view(),
         name="djinn_announcements_view_serviceannouncement"),
-    
+
     url(r"^add/serviceannouncement$",
         ServiceAnnouncementCreateView.as_view(),
         name="djinn_announcements_add_serviceannouncement"),
