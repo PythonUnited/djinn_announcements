@@ -60,11 +60,11 @@
 <div class="btn-group form-controls">
   {% submit_button 'Opslaan' %}
   {% cancel_button %}
+</div>
   {% if not object.is_initiated %}
   {% ifpermission object request.user contenttypes.delete_contenttype %}
   {% delete_content object 'Verwijder deze storing' %}
   {% endifpermission %}
   {% endif %}
-</div>
   
 {% endblock %}

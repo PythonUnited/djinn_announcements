@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-25 13:45+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2013-03-28 13:52+0100\n"
+"PO-Revision-Date: 2013-03-28 13:55+0100\n"
+"Last-Translator: Duco Dokter <dokter@w20e.com>\n"
+"Language-Team: PythonUnited <info@pythonunited.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
 
 #: settings.py:3
 msgid "Open"
@@ -25,58 +26,89 @@ msgstr ""
 msgid "Closed"
 msgstr ""
 
-#: settings.py:6
+#: settings.py:3
 msgid "In progress"
 msgstr ""
 
-#: forms/serviceannouncement.py:10 models/serviceannouncement.py:13
-msgid "Start date"
+#: settings.py:11
+msgid "Normal"
 msgstr ""
 
-#: forms/serviceannouncement.py:17 models/serviceannouncement.py:14
-msgid "(Expected) end date"
+#: settings.py:11
+msgid "High"
 msgstr ""
 
-#: forms/serviceannouncement.py:25 models/announcement.py:14
-msgid "Status"
-msgstr ""
-
-#: forms/serviceannouncement.py:30
-msgid "Description"
-msgstr ""
-
-#: models/announcement.py:12
-msgid "Title"
-msgstr ""
-
-#: models/announcement.py:13 models/announcementupdate.py:9
-msgid "Text"
-msgstr ""
-
-#: models/announcement.py:28 models/announcement.py:29
-msgid "Announcement"
-msgstr ""
-
-#: models/announcement.py:32
-msgid "Announcements"
-msgstr ""
-
-#: models/announcement.py:33
-msgid "announcements"
-msgstr ""
-
-#: models/announcementupdate.py:8
+#: forms/announcementupdate.py:9
+#: models/announcementupdate.py:9
 msgid "Date"
 msgstr ""
 
-#: models/serviceannouncement.py:29 models/serviceannouncement.py:30
+#: forms/announcementupdate.py:15
+#: forms/serviceannouncement.py:39
+msgid "Description"
+msgstr ""
+
+#: forms/serviceannouncement.py:11
+#: models/serviceannouncement.py:14
+msgid "Start date"
+msgstr ""
+
+#: forms/serviceannouncement.py:18
+#: models/serviceannouncement.py:15
+msgid "(Expected) end date"
+msgstr ""
+
+#: forms/serviceannouncement.py:26
+#: models/announcement.py:13
+msgid "Status"
+msgstr ""
+
+#: forms/serviceannouncement.py:33
+#: models/announcement.py:14
+msgid "Priority"
+msgstr ""
+
+#: models/announcement.py:11
+msgid "Title"
+msgstr ""
+
+#: models/announcement.py:12
+#: models/announcementupdate.py:10
+msgid "Text"
+msgstr ""
+
+#: models/announcement.py:45
+#: models/announcement.py:46
+msgid "Announcement"
+msgstr ""
+
+#: models/announcement.py:49
+msgid "Announcements"
+msgstr ""
+
+#: models/announcement.py:50
+msgid "announcements"
+msgstr ""
+
+#: models/serviceannouncement.py:31
+#: models/serviceannouncement.py:32
 msgid "ServiceAnnouncement"
-msgstr ""
+msgstr "Service announcement"
 
-#: models/serviceannouncement.py:34
+#: models/serviceannouncement.py:36
 msgid "ServiceAnnouncements"
-msgstr ""
+msgstr "Service announcements"
 
-#: models/serviceannouncement.py:35
+#: models/serviceannouncement.py:37
 msgid "serviceannouncements"
 msgstr ""
+
+#: templates/snippets/announcement.html:9
+#: templates/snippets/announcements.html:13
+msgid "MONTH_DAY_FORMAT"
+msgstr ""
+
+#: templates/snippets/serviceannouncements_viewlet.html:37
+msgid "All service announcements"
+msgstr ""
+

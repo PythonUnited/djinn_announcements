@@ -12,7 +12,7 @@ from views.announcementviewlet import AnnouncementViewlet, \
 
 _urlpatterns = patterns(
     "",
-             
+
     url(r"^serviceannouncement/(?P<pk>[\d]+)/(?P<slug>[^\/]+)/?",
         ServiceAnnouncementDetailView.as_view(),
         name="djinn_announcements_view_serviceannouncement"),

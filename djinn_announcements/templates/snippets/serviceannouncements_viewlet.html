@@ -32,7 +32,11 @@
     </li>
     {% endfor %}
   </ul>
-  
+
+  {% if view.show_more %}
+  <a href="{% url haystack_search %}?content_type=serviceannouncement">{% trans "All service announcements" %}</a>
+  {% endif %}
+
   {% else %}
   
   <div class="alert alert-info" id="announcements-alert">

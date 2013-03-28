@@ -12,12 +12,14 @@
 <section class="details">
   <dl>
     <dt>Start datum</dt><dd>{{ object.start_date }}</dd>
+    {% if object.end_date %}
     <dt>(Verwachtte) einddatum</dt><dd>{{ object.end_date }}</dd>
-    <dt>Status</dt><dd>{{ object.status }}</dd>
+    {% endif %}
+    <dt>Status</dt><dd>{{ object.formatted_status }}</dd>
   </dl>
 </section>
 
-{% if object.announcementupdates.all.exists %}  
+{% if object.updates.all.exists %}  
 <section id="updates">
   <header>
     <h2>Updates
@@ -32,7 +34,7 @@
   </header>
 
   <span id="update_list">
-    {% include "djinn_announcements/snippets/updates.html" %}
+    {% include "snippets/updates.html" %}
   </span>
 
 </section>
