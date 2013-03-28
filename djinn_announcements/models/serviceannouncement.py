@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
@@ -10,9 +11,9 @@ class ServiceAnnouncement(Announcement):
     """ Announcement of 'servicing' or disturbance. Should show
     expected end date"""
 
-    start_date = models.DateTimeField(_('Start date'))
+    start_date = models.DateTimeField(_('Start date'), default=datetime.now)
     end_date = models.DateTimeField(_('(Expected) end date'), null=True,
-                                      blank=True, default=None)
+                                    blank=True, default=None)
     
     @property
     def slug(self):

@@ -41,7 +41,7 @@ class PriorityAnnouncementViewlet(AnnouncementViewlet):
 
 class ServiceAnnouncementViewlet(AnnouncementViewlet):
 
-    template_name = "snippets/service_announcements_viewlet.html"
+    template_name = "snippets/serviceannouncements_viewlet.html"
 
     def announcements(self, limit=5):
 

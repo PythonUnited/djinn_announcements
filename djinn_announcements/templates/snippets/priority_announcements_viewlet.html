@@ -5,7 +5,7 @@
   {% for announcement in view.announcements %}
   <div class="alert">
     <h2>{{ announcement.title }}</h2>
-    <time>{{ announcement.start_date }}</time>
+    <time>{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</time>
     {{ announcement.text|safe }}
 
     {% for update in announcement.updates.all %}

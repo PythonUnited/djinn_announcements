@@ -37,9 +37,10 @@ class ServiceAnnouncementForm(forms.ModelForm):
                                   )
 
     text = NoScriptCharField(label=_("Description"),
-                                 widget=forms.Textarea(
-                                     attrs={'class': 'full wysiwyg', 
-                                            'rows': '5'})
+                             max_length=150,
+                             widget=forms.Textarea(
+            attrs={'class': 'full wysiwyg', 
+                   'rows': '5'})
     )
 
     class Meta:

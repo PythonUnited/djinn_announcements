@@ -1,16 +1,15 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from pgcontent.models.publishable import PublishableContent
 from pgcontent.registry import CTRegistry
-from pgcontent.models.commentable import CommentableMixin
 from pgcontent.models.changeable import ChangeableBaseContent
 from pgcontent.models.relatable import RelatableMixin
+from djinn_announcements.settings import ANNOUNCEMENT_STATUS
 
 
 class Announcement(ChangeableBaseContent, RelatableMixin):
 
     title = models.CharField(_('Title'), max_length=200)
-    text = models.TextField(_('Text'), max_length=150)
+    text = models.TextField(_('Text'))
     status = models.IntegerField(_('Status'), blank=True, null=True) 
     priority = models.IntegerField(_("Priority"), default=0)
 
@@ -21,11 +20,18 @@ class Announcement(ChangeableBaseContent, RelatableMixin):
     @property
     def title_slice(self):
 
-        max = 51
+        """ Give title summary up to 50 chars """
 
-        if len(self.title) > max:
-            return "%s..." % self.title[:max]
+        if len(self.title) > 50:
+            return "%s..." % self.title[:50]
         return self.title
+
+    @property
+    def formatted_status(self):
+
+        """ Format according to vocabulary """
+
+        return ANNOUNCEMENT_STATUS.get(self.status, "")
 
     class Meta:
         app_label = 'djinn_announcements'

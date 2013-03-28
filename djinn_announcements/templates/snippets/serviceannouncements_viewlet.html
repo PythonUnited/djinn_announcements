@@ -1,0 +1,44 @@
+{% load i18n %}
+{% load humanize %}
+{% load djinn_announcements_tags %}
+
+<section id="serviceannouncements">
+  
+  <header>
+    <h2>Storingen/werkzaamheden</h2>
+  </header>
+
+  {% if view.announcements|length > 0 %}
+
+  <ul>
+    {% for announcement in view.announcements %}
+    <li>
+      <a data-target="#MyModal"
+         href="{% url djinn_announcements_view_serviceannouncement announcement.id announcement.slug %}"
+         data-toggle="modal">
+        {{ announcement.title_slice }}
+      </a>
+      {% if announcement.status > -1 %}
+      <div class="announcementstatus {{ announcement.status|statusclass }}">{{ announcement.formatted_status }}</div>
+      {% endif %}
+      
+      <time>{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</time>
+      
+      {{ announcement.text|safe }}
+      
+      {% if announcement.updates.all.exists %}
+      <time class="pull-left">Update {{ announcement.updates.all.0.date }}</time>: {{ announcement.updates.all.0.text|safe }}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  
+  {% else %}
+  
+  <div class="alert alert-info" id="announcements-alert">
+    Er zijn geen mededelingen.
+  </div>
+  
+  {% endif %}
+  
+</section>

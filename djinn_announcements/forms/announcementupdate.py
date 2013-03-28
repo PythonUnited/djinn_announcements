@@ -7,16 +7,17 @@ from djinn_announcements.models.announcementupdate import AnnouncementUpdate
 class AnnouncementUpdateForm(forms.ModelForm):
 
     date = forms.DateTimeField(label=_("Date"),
-                                     widget=forms.DateTimeInput(
+                               widget=forms.DateTimeInput(
             attrs={'class': 'datetime'},
             format="%d-%m-%Y %H:%M"
             )
-                                     )    
+                               )    
     text = NoScriptCharField(label=_("Description"),
+                             max_length=150,
                              widget=forms.Textarea(
             attrs={'class': 'full wysiwyg', 'id': 'update_text',
                    'rows': '5'})
-    )
+                             )
 
     @property
     def labels(self):

@@ -1,8 +1,15 @@
 from django.utils.translation import ugettext_lazy as _
 
-ANNOUNCEMENT_STATUS_VOCAB = (("", "---"), (0, _('Open')), (1, _('Closed')))
+ANNOUNCEMENT_STATUS = {0: _("Open"), 20: _("Closed"), 10: _("In progress")}
 
-SERVICEANNOUNCEMENT_STATUS_VOCAB = (("", "---"), (0, _('Open')), \
-                                        (2, _('In progress')), (1, _('Closed')))
+ANNOUNCEMENT_STATUS_VOCAB = (("", "---"), ) + \
+    tuple(sorted(ANNOUNCEMENT_STATUS.items()[:2]))
 
-ANNOUNCEMENT_PRIORITY_VOCAB = ((0, _("Normal")), (1, _("High")))
+SERVICEANNOUNCEMENT_STATUS_VOCAB = (("", "---"), ) + \
+    tuple(sorted(ANNOUNCEMENT_STATUS.items()))
+
+ANNOUNCEMENT_PRIORITY = {0: _("Normal"), 1: _("High")}
+
+ANNOUNCEMENT_PRIORITY_VOCAB = sorted(ANNOUNCEMENT_PRIORITY.items())
+
+STATUS_CLASSES = {0: "open", 20: "closed", 10: "progress"}
