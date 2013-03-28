@@ -8,7 +8,7 @@ class AnnouncementUpdateCreateView(JSONCreateView):
 
     model = AnnouncementUpdate
     form_class = AnnouncementUpdateForm
-    success_template_name = "snippets/announcementupdate.html"
+    success_template_name = "djinn_announcements/snippets/announcementupdate.html"
 
     def get_initial(self):
 
@@ -18,7 +18,7 @@ class AnnouncementUpdateUpdateView(JSONUpdateView):
 
     model = AnnouncementUpdate
     form_class = AnnouncementUpdateForm
-    success_template_name = "snippets/announcementupdate.html"
+    success_template_name = "djinn_announcements/snippets/announcementupdate.html"
 
 
 class AnnouncementUpdateDetailView(JSONDetailView):

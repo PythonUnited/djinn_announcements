@@ -4,7 +4,7 @@ from djinn_announcements.models.announcement import Announcement
 
 class AnnouncementsViewlet(TemplateView):
 
-    template_name = "snippets/announcements_viewlet.html"
+    template_name = "djinn_announcements/snippets/announcements_viewlet.html"
 
     def get_context_data(self, **kwargs):
 

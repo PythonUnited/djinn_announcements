@@ -6,7 +6,7 @@ from djinn_announcements.settings import SHOW_N_ANNOUNCEMENTS
 
 class AnnouncementViewlet(TemplateView):
 
-    template_name = "snippets/announcements_viewlet.html"
+    template_name = "djinn_announcements/snippets/announcements_viewlet.html"
 
     def get_context_data(self, **kwargs):
 
@@ -33,24 +33,24 @@ class AnnouncementViewlet(TemplateView):
 
 class PriorityAnnouncementViewlet(AnnouncementViewlet):
 
-    template_name = "snippets/priority_announcements_viewlet.html"
+    template_name = "djinn_announcements/snippets/priority_announcements_viewlet.html"
 
     def announcements(self):
 
         try:
-            return Announcement.objects.filter(priority=1)[:1]
+            return ServiceAnnouncement.objects.filter(priority=1)[:1]
         except:
             return None
 
 
 class ServiceAnnouncementViewlet(AnnouncementViewlet):
 
-    template_name = "snippets/serviceannouncements_viewlet.html"
+    template_name = "djinn_announcements/snippets/serviceannouncements_viewlet.html"
 
     def announcements(self):
 
         try:
-            priority_announcement = Announcement.objects.filter(priority=1) \
+            priority_announcement = ServiceAnnouncement.objects.filter(priority=1) \
                 [0].pk
         except:
             priority_announcement = -1

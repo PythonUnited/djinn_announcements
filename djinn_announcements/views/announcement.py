@@ -9,7 +9,7 @@ class AnnouncementCreateView(JSONCreateView):
 
     model = Announcement
     form_class = AnnouncementForm
-    success_template_name = "snippets/announcement.html"
+    success_template_name = "djinn_announcements/snippets/announcement.html"
 
     def get_initial(self):
 
@@ -20,7 +20,7 @@ class AnnouncementUpdateView(JSONUpdateView):
 
     model = Announcement
     form_class = AnnouncementForm
-    success_template_name = "snippets/announcement.html"
+    success_template_name = "djinn_announcements/snippets/announcement.html"
 
 
 class AnnouncementDeleteView(JSONDeleteView):
@@ -33,4 +33,4 @@ class AnnouncementDetailView(PGDetailView):
     model = Announcement
 
     def get_template_names(self):
-        return ["snippets/announcement_detail.html"]
+        return ["djinn_announcements/snippets/announcement_detail.html"]

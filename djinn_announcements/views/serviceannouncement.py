@@ -24,9 +24,9 @@ class ServiceAnnouncementDetailView(PGDetailView):
     def get_template_names(self):
 
         if self.request.GET.get("modal", False):
-            return ["snippets/serviceannouncement_modal.html"]
+            return ["djinn_announcements/snippets/serviceannouncement_modal.html"]
         else:
-            return ["serviceannouncement_detail.html"]
+            return ["djinn_announcements/serviceannouncement_detail.html"]
         
 
 class ServiceAnnouncementDeleteView(PGDeleteView):

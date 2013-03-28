@@ -4,7 +4,16 @@
   
   {% for announcement in view.announcements %}
   <div class="alert">
-    <h2>{{ announcement.title }}</h2>
+    <header>
+      <h1>
+        <a data-toggle="modal"
+           data-target="#MyModal"
+           href="{% url djinn_announcements_view_serviceannouncement announcement.pk announcement.slug %}?modal=1">
+          {{ announcement.title }}
+        </a>
+      </h1>
+    </header>
+    
     <time>{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</time>
     {{ announcement.text|safe }}
 
