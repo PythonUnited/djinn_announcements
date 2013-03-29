@@ -39,5 +39,6 @@ setup(name='djinn_announcements',
       [djinn.app]
       urls=djinn_announcements:get_urls
       js=djinn_announcements:get_js
+      css=djinn_announcements:get_css
       """
       )

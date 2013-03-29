@@ -17,7 +17,8 @@ class ServiceAnnouncement(Announcement):
     
     @property
     def slug(self):
-        return slugify(self.title)        
+        
+        return slugify(self.title)
 
     class Meta:
         app_label = 'djinn_announcements'

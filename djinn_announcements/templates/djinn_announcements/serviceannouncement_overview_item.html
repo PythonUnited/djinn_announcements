@@ -5,8 +5,6 @@
 {% load auth_tags %}
 {% load pu_in_favorites_tags %}
 
-{% block item-class %}serviceannouncement{% endblock %}
-
 {% block title %}
 <a href="{% url djinn_announcements_view_serviceannouncement pk=modelinstance.pk slug=modelinstance.slug %}">
   {{ modelinstance.title|truncatechars:80 }}
