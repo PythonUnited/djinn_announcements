@@ -15,7 +15,9 @@ class AnnouncementUpdateForm(forms.ModelForm):
     text = NoScriptCharField(label=_("Description"),
                              max_length=150,
                              widget=forms.Textarea(
-            attrs={'class': 'full wysiwyg', 'id': 'update_text',
+            attrs={'class': 'full wysiwyg',
+                   'id': 'update_text',
+                   'data-maxchars': 150,
                    'rows': '5'})
                              )
 

@@ -36,10 +36,14 @@ class ServiceAnnouncementForm(forms.ModelForm):
             choices=ANNOUNCEMENT_PRIORITY_VOCAB)
                                   )
 
+    title = forms.CharField(label=_("Title"),
+                            max_length=255)
+
     text = NoScriptCharField(label=_("Description"),
                              max_length=150,
                              widget=forms.Textarea(
-            attrs={'class': 'full wysiwyg', 
+            attrs={'class': 'full wysiwyg',
+                   'data-maxchars': 150,
                    'rows': '5'})
     )
 

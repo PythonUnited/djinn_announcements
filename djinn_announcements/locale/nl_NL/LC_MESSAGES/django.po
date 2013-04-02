@@ -46,7 +46,7 @@ msgstr "Datum"
 #: forms/announcementupdate.py:15
 #: forms/serviceannouncement.py:39
 msgid "Description"
-msgstr "Korte uitleg"
+msgstr "Korte tekst (maximaal 150 tekens)"
 
 #: forms/serviceannouncement.py:11
 #: models/serviceannouncement.py:14
