@@ -8,6 +8,14 @@ class AnnouncementViewlet(TemplateView):
 
     template_name = "djinn_announcements/snippets/announcements_viewlet.html"
 
+    def render_to_response(self, context, **response_kwargs):
+        
+        return super(AnnouncementViewlet, self).render_to_response(
+            context,
+            content_type='text/plain',
+            **response_kwargs)
+
+
     def get_context_data(self, **kwargs):
 
         ctx = super(AnnouncementViewlet, self).get_context_data(**kwargs)
