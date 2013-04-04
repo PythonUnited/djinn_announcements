@@ -39,7 +39,7 @@ class PriorityAnnouncementViewlet(AnnouncementViewlet):
         try:
             return ServiceAnnouncement.objects.filter(priority=1)[:1]
         except:
-            return None
+            return []
 
 
 class ServiceAnnouncementViewlet(AnnouncementViewlet):
@@ -49,13 +49,12 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
     def announcements(self):
 
         try:
-            priority_announcement = ServiceAnnouncement.objects.filter(priority=1) \
-                [0].pk
+            priority_announcement = ServiceAnnouncement.objects.filter(priority=1)[0].pk
         except:
             priority_announcement = -1
 
         return ServiceAnnouncement.objects.all(). \
-            exclude(pk=priority_announcement,title="")[:SHOW_N_ANNOUNCEMENTS]
+            exclude(pk=priority_announcement).exclude(title="")[:SHOW_N_ANNOUNCEMENTS]
 
     @property
     def show_more(self):
