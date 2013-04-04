@@ -6,12 +6,21 @@ from pgcontent.models.relatable import RelatableMixin
 from djinn_announcements.settings import ANNOUNCEMENT_STATUS
 
 
+class AnnouncementManager(models.Manager):
+
+     def get_query_set(self):
+         return super(AnnouncementManager, self).get_query_set().filter(
+             is_initiated=False)
+
+
 class Announcement(ChangeableBaseContent, RelatableMixin):
 
     title = models.CharField(_('Title'), max_length=200)
     text = models.TextField(_('Text'))
     status = models.IntegerField(_('Status'), blank=True, null=True) 
     priority = models.IntegerField(_("Priority"), default=0)
+
+    objects = AnnouncementManager()
 
     def __unicode__(self):
 
@@ -46,5 +55,5 @@ CTRegistry.register("announcement",
                      "label": _("Announcement"),
                      "add_permission": "djinn_announcements.add_announcement",
                      "group_add": True,
-                     "filter_label": _("Announcements"),
+                     "filter_label": "",
                      "name_plural": _("announcements")})
