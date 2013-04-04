@@ -55,7 +55,7 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
             priority_announcement = -1
 
         return ServiceAnnouncement.objects.all(). \
-            exclude(pk=priority_announcement)[:SHOW_N_ANNOUNCEMENTS]
+            exclude(pk=priority_announcement,title="")[:SHOW_N_ANNOUNCEMENTS]
 
     @property
     def show_more(self):
