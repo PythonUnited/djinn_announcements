@@ -26,17 +26,8 @@ class AnnouncementViewlet(TemplateView):
 
     def announcements(self, limit=5):
 
-        _announcements = []
-
-        for announcement in Announcement.objects.filter(priority=0):
-            try:
-                announcement.serviceannouncement
-            except:
-                _announcements.append(announcement)
-            if len(_announcements) >= limit:
-                break
-
-        return _announcements
+        return Announcement.objects.filter(
+            priority=0, serviceannouncement__isnull=True)[:limit]
 
 
 class PriorityAnnouncementViewlet(AnnouncementViewlet):

@@ -10,7 +10,7 @@ class AnnouncementManager(models.Manager):
 
      def get_query_set(self):
          return super(AnnouncementManager, self).get_query_set().filter(
-             is_initiated=False)
+             is_initiated=False).exclude(title="")
 
 
 class Announcement(ChangeableBaseContent, RelatableMixin):
