@@ -1,17 +1,49 @@
+from django.forms.models import inlineformset_factory
 from pgcontent.views.base import PGDetailView, PGEditView, PGDeleteView, \
     PGAddView, PGGroupAddView
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.forms.serviceannouncement import \
     ServiceAnnouncementForm
+from djinn_announcements.forms.announcementupdate import AnnouncementUpdateForm
+from djinn_announcements.models.announcementupdate import AnnouncementUpdate
 
 
-class ServiceAnnouncementCreateView(PGAddView):
+class UpdateFormMixin(object):
+
+    def _create_formset(self, *args, **kwargs):
+
+        return inlineformset_factory(ServiceAnnouncement,
+                                     AnnouncementUpdate,
+                                     form=AnnouncementUpdateForm,
+                                     extra=1)(*args, **kwargs)
+    
+    def get_context_data(self, **kwargs):
+
+        context = super(UpdateFormMixin, self).get_context_data(**kwargs)
+
+        context['updatesform'] = self._create_formset(instance=self.object)
+
+        return context
+
+    def post(self, request, *args, **kwargs):
+
+        self.object = self.get_object()
+
+        formset = self._create_formset(request.POST, request.FILES, 
+                                       instance=self.object)
+        if formset.is_valid():
+            formset.save()
+
+        return super(UpdateFormMixin, self).post(request, *args, **kwargs)
+
+
+class ServiceAnnouncementCreateView(UpdateFormMixin, PGAddView):
 
     model = ServiceAnnouncement
     form_class = ServiceAnnouncementForm
 
 
-class ServiceAnnouncementUpdateView(PGEditView):
+class ServiceAnnouncementUpdateView(UpdateFormMixin, PGEditView):
 
     model = ServiceAnnouncement
     form_class = ServiceAnnouncementForm

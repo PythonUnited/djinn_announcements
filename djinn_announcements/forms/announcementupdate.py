@@ -16,7 +16,6 @@ class AnnouncementUpdateForm(forms.ModelForm):
                              max_length=150,
                              widget=forms.Textarea(
             attrs={'class': 'full wysiwyg',
-                   'id': 'update_text',
                    'data-maxchars': 150,
                    'rows': '5'})
                              )
