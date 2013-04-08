@@ -34,13 +34,13 @@
 
 {% control form.text %}
 
+{{ updatesform.management_form }}
+
 {% if not object.is_initiated %}  
 <section id="updates" class="control editmode">
   <header>
     <h2>Updates</h2>
   </header>
-
-  {{ updatesform.management_form }}
 
   {% for form in updatesform.forms %}
   <div class="update">
