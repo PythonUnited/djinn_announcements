@@ -34,7 +34,9 @@
 
 {% control form.text %}
 
-{{ updatesform.management_form }}
+<section id="updates-management" class="control">
+  {{ updatesform.management_form }}
+</section>
 
 {% if not object.is_initiated %}  
 <section id="updates" class="control editmode">
