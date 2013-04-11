@@ -20,7 +20,7 @@ class Announcement(ChangeableBaseContent, RelatableMixin):
     status = models.IntegerField(_('Status'), blank=True, null=True) 
     priority = models.IntegerField(_("Priority"), default=0)
 
-    objects = AnnouncementManager()
+    #objects = AnnouncementManager()
 
     def __unicode__(self):
 

@@ -19,24 +19,17 @@ class AnnouncementIndex(ContentRealTimeSearchIndex):
             self.fields['content_auto'].template_name = \
             "indexes/announcement_index.txt"
 
-    def should_update(self, instance, **kwargs):
-
-        return not hasattr(instance, "serviceannouncement")
-
     def index_queryset(self):
 
-        return self.model.objects.filter(serviceannouncement__isnull=True)
+        return self.model.objects.filter(is_initiated=False, 
+                                         serviceannouncement__isnull=True)
 
 
 class ServiceAnnouncementIndex(AnnouncementIndex):
 
-    def should_update(self, instance, **kwargs):
-
-        return hasattr(instance, "serviceannouncement")
-            
     def index_queryset(self):
 
-        return self.model.objects.all()
+        return self.model.objects.filter(is_initiated=False)
 
 
 site.register(Announcement, AnnouncementIndex)
