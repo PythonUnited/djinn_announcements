@@ -9,7 +9,9 @@
 
 <dl>
   <dt>Start datum</dt><dd>{{ object.start_date }}</dd>
+  {% if object.end_date %}
   <dt>(Verwachte) einddatum</dt><dd>{{ object.end_date }}</dd>
+  {% endif %}
   <dt>Status</dt><dd>{{ object.formatted_status }}</dd>
 </dl>
 

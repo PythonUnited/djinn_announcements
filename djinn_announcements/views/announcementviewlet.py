@@ -46,7 +46,7 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
 
     template_name = "djinn_announcements/snippets/serviceannouncements_viewlet.html"
 
-    def announcements(self):
+    def announcements(self, limit=SHOW_N_ANNOUNCEMENTS):
 
         try:
             priority_announcement = ServiceAnnouncement.objects.filter(priority=1)[0].pk
@@ -54,9 +54,9 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
             priority_announcement = -1
 
         return ServiceAnnouncement.objects.all(). \
-            exclude(pk=priority_announcement).exclude(title="")[:SHOW_N_ANNOUNCEMENTS]
+            exclude(pk=priority_announcement).exclude(title="")[:limit]
 
     @property
-    def show_more(self):
+    def show_more(self, limit=SHOW_N_ANNOUNCEMENTS):
 
-        return ServiceAnnouncement.objects.all().count() > SHOW_N_ANNOUNCEMENTS
+        return self.announcements(limit=None).count() > limit
