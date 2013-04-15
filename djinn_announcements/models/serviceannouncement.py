@@ -33,6 +33,6 @@ CTRegistry.register("serviceannouncement",
                      "label": _("ServiceAnnouncement"),
                      "add_permission": \
                          "djinn_announcements.add_serviceannouncement",
-                     "group_add": True,
+                     "global_add": True,
                      "filter_label": _("ServiceAnnouncements"),
                      "name_plural": _("serviceannouncements")})
