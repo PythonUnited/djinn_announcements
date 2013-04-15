@@ -33,7 +33,19 @@ class UpdateFormMixin(object):
                                        instance=self.object)
         if formset.is_valid():
             formset.save()
+        else:
+            form_class = self.get_form_class()
+            form = self.get_form(form_class)
+            ctx = self.get_context_data(form=form)
+            ctx['updatesform'] = formset
 
+            def to_label(err):
+                              
+                return (formset.forms[0].fields[err[0]].label, err[1])
+            
+            ctx['errors'] = map(to_label, formset.errors[0].items())
+
+            return self.render_to_response(ctx)
         return super(UpdateFormMixin, self).post(request, *args, **kwargs)
 
 

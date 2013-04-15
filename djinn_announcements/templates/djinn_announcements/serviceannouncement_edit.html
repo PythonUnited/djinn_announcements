@@ -8,6 +8,33 @@
 {% load form_tags %}
 {% load i18n %}
 
+
+{% block errors %}
+  
+{% if updatesform.errors or form.errors %}
+
+<div class="alert alert-error">
+  <strong>Het formulier bevat de volgende fouten:</strong>
+  <ul class="basic-list">
+    
+    {% for field in form %}
+    {% if field.errors %}
+    <li><strong>{{ field.label }}</strong>: {{ field.errors }}</li>
+    {% endif %}
+    {% endfor %}
+
+    {% for err in errors %}
+    <li><strong>Update {{ err.0 }}</strong>: {{ err.1 }}</li>
+    {% endfor %}
+    
+  </ul>
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+
 {% block left-pane %}
 
 <header>
