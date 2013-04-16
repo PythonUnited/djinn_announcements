@@ -29,7 +29,7 @@
       {{ announcement.text|safe }}
       
       {% if announcement.updates.all.exists %}
-      <time class="pull-left">Update {{ announcement.updates.all.0.date }}</time>: {{ announcement.updates.all.0.text|safe }}
+      <time class="pull-left">Update {{ announcement.sorted_updates.0.date }}</time>: {{ announcement.sorted_updates.0.text|safe }}
       {% endif %}
     </li>
     {% endfor %}

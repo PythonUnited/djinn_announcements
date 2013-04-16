@@ -6,13 +6,6 @@ from pgcontent.models.relatable import RelatableMixin
 from djinn_announcements.settings import ANNOUNCEMENT_STATUS
 
 
-class AnnouncementManager(models.Manager):
-
-     def get_query_set(self):
-         return super(AnnouncementManager, self).get_query_set().filter(
-             is_initiated=False).exclude(title="")
-
-
 class Announcement(ChangeableBaseContent, RelatableMixin):
 
     title = models.CharField(_('Title'), max_length=200)
@@ -20,7 +13,10 @@ class Announcement(ChangeableBaseContent, RelatableMixin):
     status = models.IntegerField(_('Status'), blank=True, null=True) 
     priority = models.IntegerField(_("Priority"), default=0)
 
-    #objects = AnnouncementManager()
+    @property
+    def sorted_updates(self):
+
+         return self.updates.order_by("-date")
 
     def __unicode__(self):
 
