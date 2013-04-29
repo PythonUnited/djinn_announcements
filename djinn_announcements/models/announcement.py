@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from pgcontent.registry import CTRegistry
+from djinn_contenttypes.registry import CTRegistry
 from pgcontent.models.changeable import ChangeableBaseContent
 from pgcontent.models.relatable import RelatableMixin
 from djinn_announcements.settings import ANNOUNCEMENT_STATUS
@@ -45,11 +45,8 @@ class Announcement(ChangeableBaseContent, RelatableMixin):
 
 CTRegistry.register("announcement", 
                     {"class": Announcement,
-                     "user_can_add": True,
                      "app": "djinn_announcements",
-                     "name": _("Announcement"),
                      "label": _("Announcement"),
                      "add_permission": "djinn_announcements.add_announcement",
-                     "group_add": True,
                      "filter_label": "",
                      "name_plural": _("announcements")})

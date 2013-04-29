@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
 from announcement import Announcement
-from pgcontent.registry import CTRegistry
+from djinn_contenttypes.registry import CTRegistry
 
 
 class ServiceAnnouncement(Announcement):
@@ -27,12 +27,9 @@ class ServiceAnnouncement(Announcement):
 
 CTRegistry.register("serviceannouncement", 
                     {"class": ServiceAnnouncement,
-                     "user_can_add": True,
                      "app": "djinn_announcements",
-                     "name": _("ServiceAnnouncement"),
                      "label": _("ServiceAnnouncement"),
                      "add_permission": \
                          "djinn_announcements.add_serviceannouncement",
-                     "global_add": True,
                      "filter_label": _("ServiceAnnouncements"),
                      "name_plural": _("serviceannouncements")})
