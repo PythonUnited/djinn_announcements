@@ -1,20 +1,21 @@
 from django.conf.urls.defaults import patterns, url, include
-from views.serviceannouncement import \
-    ServiceAnnouncementCreateView, ServiceAnnouncementDetailView, \
-    ServiceAnnouncementUpdateView, ServiceAnnouncementDeleteView
+from djinn_contenttypes.views.base import DetailView, DeleteView
+from views.serviceannouncement import ServiceAnnouncementCreateView, \
+    ServiceAnnouncementUpdateView
 from views.announcementupdate import AnnouncementUpdateCreateView, \
     AnnouncementUpdateUpdateView, AnnouncementUpdateDeleteView
-from views.announcement import AnnouncementCreateView, AnnouncementDetailView, \
+from views.announcement import AnnouncementCreateView, \
     AnnouncementUpdateView, AnnouncementDeleteView
 from views.announcementviewlet import AnnouncementViewlet, \
     PriorityAnnouncementViewlet, ServiceAnnouncementViewlet
+from models import ServiceAnnouncement, Announcement
 
 
 _urlpatterns = patterns(
     "",
 
     url(r"^serviceannouncement/(?P<pk>[\d]+)/(?P<slug>[^\/]+)/?",
-        ServiceAnnouncementDetailView.as_view(),
+        DetailView.as_view(model=ServiceAnnouncement),
         name="djinn_announcements_view_serviceannouncement"),
 
     url(r"^add/serviceannouncement$",
@@ -26,7 +27,7 @@ _urlpatterns = patterns(
         name="djinn_announcements_edit_serviceannouncement"),
     
     url(r"^delete/serviceannouncement/(?P<pk>[\d]+)/?",
-        ServiceAnnouncementDeleteView.as_view(),
+        DeleteView.as_view(model=ServiceAnnouncement),
         name="djinn_announcements_delete_serviceannouncement"),
 
     # Announcement updates
@@ -44,7 +45,7 @@ _urlpatterns = patterns(
 
     # Announcements
     url(r"^announcement/(?P<pk>[\d]+)/?$",
-        AnnouncementDetailView.as_view(),
+        DetailView.as_view(model=Announcement),
         name="djinn_announcements_view_announcement"),
 
     url(r"^add/announcement/?$",

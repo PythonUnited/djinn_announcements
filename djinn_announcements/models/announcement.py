@@ -1,14 +1,12 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from djinn_contenttypes.registry import CTRegistry
-from pgcontent.models.changeable import ChangeableBaseContent
-from pgcontent.models.relatable import RelatableMixin
+from djinn_contenttypes.models.base import BaseContent
 from djinn_announcements.settings import ANNOUNCEMENT_STATUS
 
 
-class Announcement(ChangeableBaseContent, RelatableMixin):
+class Announcement(BaseContent):
 
-    title = models.CharField(_('Title'), max_length=200)
     text = models.TextField(_('Text'))
     status = models.IntegerField(_('Status'), blank=True, null=True) 
     priority = models.IntegerField(_("Priority"), default=0)

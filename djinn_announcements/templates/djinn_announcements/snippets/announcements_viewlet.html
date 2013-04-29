@@ -24,7 +24,7 @@
     {% for announcement in view.announcements %}
     <li>
       <a data-target="#MyModal"
-         href="{% url djinn_announcements_view_announcement announcement.id %}"
+         href="{% url djinn_announcements_view_announcement announcement.id %}?modal=1"
          data-toggle="modal">
         {{ announcement.title_slice }}
       </a>

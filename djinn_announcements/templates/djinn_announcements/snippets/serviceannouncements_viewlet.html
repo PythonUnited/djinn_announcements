@@ -5,7 +5,7 @@
 <section id="serviceannouncements">
   
   <header>
-    <h2>Storingen/werkzaamheden</h2>
+    <h2>{% trans "Service announcements" %}</h2>
   </header>
 
   {% if view.announcements|length > 0 %}
@@ -36,13 +36,13 @@
   </ul>
 
   {% if view.show_more %}
-  <a href="{% url haystack_search %}?content_type=serviceannouncement&sortorder=-changed">{% trans "All service announcements" %}</a>
+  <a href="{% url haystack_search %}?content_type=serviceannouncement&sortorder=-changed&restrict_filters=">{% trans "All service announcements" %}</a>
   {% endif %}
 
   {% else %}
   
   <div class="alert alert-info" id="announcements-alert">
-    Er zijn geen mededelingen.
+    {% trans "No announcements" %}
   </div>
   
   {% endif %}
