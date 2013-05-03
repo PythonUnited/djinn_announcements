@@ -21,15 +21,6 @@ class Announcement(BaseContent):
         return self.title
 
     @property
-    def title_slice(self):
-
-        """ Give title summary up to 50 chars """
-
-        if len(self.title) > 50:
-            return "%s..." % self.title[:50]
-        return self.title
-
-    @property
     def formatted_status(self):
 
         """ Format according to vocabulary """

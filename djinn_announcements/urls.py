@@ -1,14 +1,15 @@
 from django.conf.urls.defaults import patterns, url, include
 from djinn_contenttypes.views.base import DetailView, DeleteView
+from pu_in_content.views.jsonbase import JSONCreateView, \
+    JSONUpdateView, JSONDeleteView
 from views.serviceannouncement import ServiceAnnouncementCreateView, \
     ServiceAnnouncementUpdateView
-from views.announcementupdate import AnnouncementUpdateCreateView, \
-    AnnouncementUpdateUpdateView, AnnouncementUpdateDeleteView
-from views.announcement import AnnouncementCreateView, \
-    AnnouncementUpdateView, AnnouncementDeleteView
+from views.announcementupdate import AnnouncementUpdateCreateView
 from views.announcementviewlet import AnnouncementViewlet, \
     PriorityAnnouncementViewlet, ServiceAnnouncementViewlet
-from models import ServiceAnnouncement, Announcement
+from models import ServiceAnnouncement, Announcement, AnnouncementUpdate
+from forms.announcement import AnnouncementForm
+from forms.announcementupdate import AnnouncementUpdateForm
 
 
 _urlpatterns = patterns(
@@ -36,11 +37,12 @@ _urlpatterns = patterns(
         name="djinn_announcements_add_announcementupdate_json"),
 
     url(r"^edit/announcementupdate/(?P<pk>[\d]+)/?$",
-        AnnouncementUpdateUpdateView.as_view(),
+        JSONUpdateView.as_view(model=AnnouncementUpdate, 
+                               form_class=AnnouncementUpdateForm),
         name="djinn_announcements_edit_announcementupdate_json"),
 
     url(r"^delete/announcementupdate/(?P<pk>[\d]+)/?$",
-        AnnouncementUpdateDeleteView.as_view(),
+        JSONDeleteView.as_view(model=AnnouncementUpdate),
         name="djinn_announcements_delete_announcementupdate_json"),
 
     # Announcements
@@ -49,15 +51,15 @@ _urlpatterns = patterns(
         name="djinn_announcements_view_announcement"),
 
     url(r"^add/announcement/?$",
-        AnnouncementCreateView.as_view(),
+        JSONCreateView.as_view(model=Announcement, form_class=AnnouncementForm),
         name="djinn_announcements_add_announcement_json"),
 
-    url(r"^edit/announcementupdate/(?P<pk>[\d]+)/?$",
-        AnnouncementUpdateView.as_view(),
+    url(r"^edit/announcement/(?P<pk>[\d]+)/?$",
+        JSONUpdateView.as_view(model=Announcement, form_class=AnnouncementForm),
         name="djinn_announcements_edit_announcement_json"),
 
-    url(r"^delete/announcementupdate/(?P<pk>[\d]+)/?$",
-        AnnouncementDeleteView.as_view(),
+    url(r"^delete/announcement/(?P<pk>[\d]+)/?$",
+        JSONDeleteView.as_view(model=Announcement),
         name="djinn_announcements_delete_announcement_json"),
 
     # Viewlet

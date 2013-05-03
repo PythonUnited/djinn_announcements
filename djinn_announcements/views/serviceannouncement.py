@@ -1,5 +1,6 @@
 from django.forms.models import inlineformset_factory
-from pgcontent.views.base import PGEditView, PGAddView
+from django.http import HttpResponseRedirect
+from djinn_contenttypes.views.base import CreateView, UpdateView
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.forms.serviceannouncement import \
     ServiceAnnouncementForm
@@ -26,7 +27,19 @@ class UpdateFormMixin(object):
 
     def post(self, request, *args, **kwargs):
 
-        self.object = self.get_object()
+        if self.request.POST.get("action", None) == "cancel":
+            url = self.request.user.profile.get_absolute_url()
+            return HttpResponseRedirect(url)
+
+        self.object = None
+
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+
+        if form.is_valid():
+            self.object = form.save()
+        else:
+            return self.form_invalid(form)
 
         formset = self._create_formset(request.POST, request.FILES, 
                                        instance=self.object)
@@ -45,16 +58,17 @@ class UpdateFormMixin(object):
             ctx['errors'] = map(to_label, formset.errors[0].items())
 
             return self.render_to_response(ctx)
-        return super(UpdateFormMixin, self).post(request, *args, **kwargs)
+
+        return HttpResponseRedirect(self.get_success_url())
 
 
-class ServiceAnnouncementCreateView(UpdateFormMixin, PGAddView):
+class ServiceAnnouncementCreateView(UpdateFormMixin, CreateView):
 
     model = ServiceAnnouncement
     form_class = ServiceAnnouncementForm
 
 
-class ServiceAnnouncementUpdateView(UpdateFormMixin, PGEditView):
+class ServiceAnnouncementUpdateView(UpdateFormMixin, UpdateView):
 
     model = ServiceAnnouncement
     form_class = ServiceAnnouncementForm

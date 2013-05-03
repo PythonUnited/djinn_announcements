@@ -1,4 +1,4 @@
-{% extends "djinn_contenttypes/base_edit.html" %}
+{% extends "djinn_contenttypes/base_add.html" %}
 
 {% load form_tags i18n %}
 
@@ -21,7 +21,6 @@
   {{ updatesform.management_form }}
 </section>
 
-{% if not object.is_initiated %}  
 <section id="updates" class="control editmode">
   <header>
     <h2>{% trans "Updates" %}</h2>
@@ -44,6 +43,5 @@
   {% endfor %}
       
 </section>
-{% endif %}  
 
 {% endblock %}

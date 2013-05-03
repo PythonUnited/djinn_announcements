@@ -1,7 +1,6 @@
 from django.contrib import admin
 from models.announcement import Announcement
 from models.announcementupdate import AnnouncementUpdate
-from models.serviceannouncement import ServiceAnnouncement
 
 
 class AnnouncementUpdateInline(admin.TabularInline):

@@ -1,13 +1,15 @@
-{% load humanize %}
+{% load i18n humanize djinn_contenttypes auth_tags %}
 
 <section id="announcements" class="editmode">
   
   <header>
     <h2>
-      Mededelingen
+      {% trans "Announcements" %} 
       
       <span class="controls">
         <a class="add-inline"
+           data-toggle="tooltip"
+           title="{% trans 'Add announcement' %}"
            data-pu_callback="djinn.hide_announcements_alert"
            target="#announcementlist"
            data-pu_targetbehavior="prepend"
@@ -22,21 +24,14 @@
       {% if announcements|length = 0 %}class="hide"{% endif %}
       >
     {% for announcement in view.announcements %}
-    <li>
-      <a data-target="#MyModal"
-         href="{% url djinn_announcements_view_announcement announcement.id %}?modal=1"
-         data-toggle="modal">
-        {{ announcement.title_slice }}
-      </a>
-      {{ announcement.created|naturalday:_("MONTH_DAY_FORMAT") }}
-    </li>
+    {% include "djinn_announcements/snippets/announcement.html" with object=announcement %}
     {% endfor %}
   </ul>
   
   {% if view.announcements|length = 0 %}
   
   <div class="alert alert-info" id="announcements-alert">
-    Er zijn geen mededelingen.
+    {% trans "No announcements" %}
   </div>
   
   {% endif %}

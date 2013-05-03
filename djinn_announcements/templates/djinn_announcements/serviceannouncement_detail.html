@@ -1,7 +1,6 @@
-{% extends "pgcontent/base_view.html" %}
+{% extends "djinn_contenttypes/base_detail.html" %}
 
-{% load auth_tags %}
-{% load contentaction_tags %}
+{% load auth_tags i18n contentaction_tags %}
 
 {% block content %}
 
@@ -11,11 +10,11 @@
 
 <section class="details">
   <dl>
-    <dt>Start datum</dt><dd>{{ object.start_date }}</dd>
+    <dt>{% trans "Start date" %}</dt><dd>{{ object.start_date }}</dd>
     {% if object.end_date %}
-    <dt>(Verwachtte) einddatum</dt><dd>{{ object.end_date }}</dd>
+    <dt>{% trans "(Expected) end date" %}</dt><dd>{{ object.end_date }}</dd>
     {% endif %}
-    <dt>Status</dt><dd>{{ object.formatted_status }}</dd>
+    <dt>{% trans "Status" %}</dt><dd>{{ object.formatted_status }}</dd>
   </dl>
 </section>
 

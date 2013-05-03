@@ -21,15 +21,14 @@ class AnnouncementIndex(ContentRealTimeSearchIndex):
 
     def index_queryset(self):
 
-        return self.model.objects.filter(is_initiated=False, 
-                                         serviceannouncement__isnull=True)
+        return self.model.objects.filter(serviceannouncement__isnull=True)
 
 
 class ServiceAnnouncementIndex(AnnouncementIndex):
 
     def index_queryset(self):
 
-        return self.model.objects.filter(is_initiated=False)
+        return self.model.objects.all()
 
 
 site.register(Announcement, AnnouncementIndex)

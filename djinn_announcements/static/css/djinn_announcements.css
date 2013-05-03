@@ -17,3 +17,7 @@
 .update input[name$=DELETE], .update label[for$=DELETE] {
     display: none !important;
 }
+
+#announcementlist {
+    list-style: none;
+}

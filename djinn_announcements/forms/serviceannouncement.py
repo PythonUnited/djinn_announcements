@@ -1,12 +1,12 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from pgcontent.fields import NoScriptCharField
+from djinn_contenttypes.forms.base import BaseForm
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.settings import SERVICEANNOUNCEMENT_STATUS_VOCAB, \
     ANNOUNCEMENT_PRIORITY_VOCAB
 
 
-class ServiceAnnouncementForm(forms.ModelForm):
+class ServiceAnnouncementForm(BaseForm):
     
     start_date = forms.DateTimeField(label=_("Start date"),
                                      widget=forms.DateTimeInput(
@@ -36,12 +36,9 @@ class ServiceAnnouncementForm(forms.ModelForm):
             choices=ANNOUNCEMENT_PRIORITY_VOCAB)
                                   )
 
-    title = forms.CharField(label=_("Title"),
-                            max_length=255)
-
-    text = NoScriptCharField(label=_("Description"),
-                             max_length=150,
-                             widget=forms.Textarea(
+    text = forms.CharField(label=_("Description"),
+                           max_length=150,
+                           widget=forms.Textarea(
             attrs={'class': 'full wysiwyg',
                    'data-maxchars': 150,
                    'rows': '5'})
@@ -49,5 +46,3 @@ class ServiceAnnouncementForm(forms.ModelForm):
 
     class Meta:
         model = ServiceAnnouncement
-        fields = ["title", "text", "status", "priority", "start_date", 
-                  "end_date"]
