@@ -3,7 +3,7 @@
 <li class="announcement editable">
   <time>{{ object.created|naturalday:_("MONTH_DAY_FORMAT") }}</time>
   <a data-target="#MyModal"
-     href="{% url djinn_announcements_view_announcement object.id %}?modal=1"
+     href="{% url djinn_announcements_view_announcement object.id object.slug %}?modal=1"
      data-toggle="modal">
     {{ object.title|abbreviate:"50" }}
   </a>
@@ -12,13 +12,13 @@
     <a class="edit-inline"
        data-toggle="tooltip"
        title="{% trans 'Edit announcement' %}"
-       href="{%  url djinn_announcements_edit_announcement_json object.id %}">
+       href="{%  url djinn_announcements_edit_announcement object.id %}">
       <i class="icon-pencil"></i>
     </a>
     <a class="rm-inline"
        data-toggle="tooltip"
        title="{% trans 'Delete announcement' %}"
-       href="{%  url djinn_announcements_delete_announcement_json object.id %}">
+       href="{%  url djinn_announcements_delete_announcement object.id %}">
       <i class="icon-remove"></i>
     </a>
   </span>

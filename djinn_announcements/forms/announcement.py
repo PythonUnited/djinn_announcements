@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from djinn_contenttypes.forms.base import BaseForm
+from djinn_contenttypes.forms.base import BaseForm, BaseAddForm
 from djinn_announcements.models.announcement import Announcement
 
 
@@ -17,8 +17,18 @@ class AnnouncementForm(BaseForm):
         return {'submit': _('Save'),
                 'cancel': _('Cancel'),
                 'header': _('Add announcement')}
+    
+
+class AnnouncementEditForm(AnnouncementForm):
 
     class Meta:
+        model = Announcement
+        exclude = ["creator"]
+        fields = ("title", "text")
 
+
+class AnnouncementAddForm(BaseAddForm, AnnouncementForm):
+
+    class Meta:
         model = Announcement
         fields = ("title", "text", "creator")
