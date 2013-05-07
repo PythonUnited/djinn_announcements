@@ -44,5 +44,5 @@ class ServiceAnnouncementForm(BaseForm):
                    'rows': '5'})
     )
 
-    class Meta:
+    class Meta(BaseForm.Meta):
         model = ServiceAnnouncement

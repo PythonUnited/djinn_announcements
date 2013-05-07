@@ -6,6 +6,7 @@
     <h2>
       {% trans "Announcements" %} 
       
+      {% ifpermission "" request.user djinn_announcements.add_announcement %}
       <span class="controls">
         <a class="add-inline"
            data-toggle="tooltip"
@@ -17,6 +18,7 @@
           <i class="icon-plus"></i>
         </a>
       </span>
+      {% endifpermission %}
     </h2>
   </header>
 

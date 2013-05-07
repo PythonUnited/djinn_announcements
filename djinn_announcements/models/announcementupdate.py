@@ -10,6 +10,10 @@ class AnnouncementUpdate(models.Model):
     text = models.TextField(_('Text'))
     announcement = models.ForeignKey(Announcement, related_name="updates")
 
+    @property
+    def slug(self):
+        return self.id
+
     class Meta:
         app_label = 'djinn_announcements'
         ordering = ('date', )

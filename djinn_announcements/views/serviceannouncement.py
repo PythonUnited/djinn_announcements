@@ -31,24 +31,29 @@ class UpdateFormMixin(object):
             url = self.request.user.profile.get_absolute_url()
             return HttpResponseRedirect(url)
 
-        self.object = None
+        self.object = self.get_object()
 
         form_class = self.get_form_class()
         form = self.get_form(form_class)
+        ctx = self.get_context_data(form=form)
+
+        is_valid = True
 
         if form.is_valid():
-            self.object = form.save()
+            # Do not return here! This sets self.object
+            #            
+            self.form_valid(form)
         else:
-            return self.form_invalid(form)
+            is_valid = False
 
         formset = self._create_formset(request.POST, request.FILES, 
                                        instance=self.object)
-        if formset.is_valid():
+        if formset.is_valid() and self.object:
             formset.save()
         else:
+            is_valid = False
             form_class = self.get_form_class()
             form = self.get_form(form_class)
-            ctx = self.get_context_data(form=form)
             ctx['updatesform'] = formset
 
             def to_label(err):
@@ -57,9 +62,10 @@ class UpdateFormMixin(object):
             
             ctx['errors'] = map(to_label, formset.errors[0].items())
 
+        if not is_valid:
             return self.render_to_response(ctx)
-
-        return HttpResponseRedirect(self.get_success_url())
+        else:
+            return HttpResponseRedirect(self.get_success_url())
 
 
 class ServiceAnnouncementCreateView(UpdateFormMixin, CreateView):

@@ -1,10 +1,11 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from pgcontent.fields import NoScriptCharField
+from djinn_contenttypes.forms.base import PartialUpdateMixin
 from djinn_announcements.models.announcementupdate import AnnouncementUpdate
 
 
-class AnnouncementUpdateForm(forms.ModelForm):
+class AnnouncementUpdateForm(PartialUpdateMixin, forms.ModelForm):
 
     date = forms.DateTimeField(label=_("Date"),
                                widget=forms.DateTimeInput(
