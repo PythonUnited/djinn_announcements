@@ -8,10 +8,6 @@ class AnnouncementIndex(ContentRealTimeSearchIndex):
 
     """ Index for announcements """
 
-    text = indexes.CharField(document=True, use_template=True,
-                             template_name="indexes/announcement_index.txt")
-
-
     def index_queryset(self):
 
         return self.model.objects.filter(serviceannouncement__isnull=True)

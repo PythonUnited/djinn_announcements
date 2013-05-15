@@ -8,7 +8,12 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = [
     'django',
-    'pgintranet'
+    'django-bootstrap-forms',
+    'pgauth',
+    'pgsearch',
+    'djinn_contenttypes',
+    'pgcontent',
+    'django-haystack'
     ]
 
 setup(name='djinn_announcements',

@@ -3,9 +3,6 @@ from djinn_contenttypes.views.utils import generate_model_urls
 from views.announcementviewlet import AnnouncementViewlet, \
     PriorityAnnouncementViewlet, ServiceAnnouncementViewlet
 from models import ServiceAnnouncement, Announcement , AnnouncementUpdate
-from forms.announcement import AnnouncementForm
-from forms.serviceannouncement import ServiceAnnouncementForm
-from forms.announcementupdate import AnnouncementUpdateForm
 
 
 _urlpatterns = patterns(
@@ -25,13 +22,9 @@ _urlpatterns = patterns(
         name="djinn_service_announcements"),
     )
 
-_a_patterns = generate_model_urls(Announcement)
-_sa_patterns = generate_model_urls(ServiceAnnouncement)
-_au_patterns = generate_model_urls(AnnouncementUpdate)
-
 urlpatterns = patterns('',
     (r'^announcements/', include(_urlpatterns)),
-    (r'^announcements/', include(_a_patterns)),
-    (r'^announcements/', include(_sa_patterns)),
-    (r'^announcements/', include(_au_patterns)),
+    (r'^announcements/', include(generate_model_urls(Announcement))),
+    (r'^announcements/', include(generate_model_urls(ServiceAnnouncement))),
+    (r'^announcements/', include(generate_model_urls(AnnouncementUpdate))),
 )
