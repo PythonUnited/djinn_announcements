@@ -9,10 +9,7 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 requires = [
     'django',
     'django-bootstrap-forms',
-    'pgauth',
-    'pgsearch',
     'djinn_contenttypes',
-    'pgcontent',
     'django-haystack'
     ]
 

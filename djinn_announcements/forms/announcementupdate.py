@@ -1,8 +1,8 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from pgcontent.fields import NoScriptCharField
 from djinn_contenttypes.forms.base import PartialUpdateMixin
 from djinn_announcements.models.announcementupdate import AnnouncementUpdate
+from django.template.defaultfilters import removetags
 
 
 class AnnouncementUpdateForm(PartialUpdateMixin, forms.ModelForm):
@@ -13,9 +13,9 @@ class AnnouncementUpdateForm(PartialUpdateMixin, forms.ModelForm):
             format="%d-%m-%Y %H:%M"
             )
                                )    
-    text = NoScriptCharField(label=_("Description"),
-                             max_length=150,
-                             widget=forms.Textarea(
+    text = forms.CharField(label=_("Description"),
+                           max_length=150,
+                           widget=forms.Textarea(
             attrs={'class': 'full wysiwyg',
                    'data-maxchars': 150,
                    'rows': '5'})
@@ -25,6 +25,12 @@ class AnnouncementUpdateForm(PartialUpdateMixin, forms.ModelForm):
     def labels(self):
 
         return {'submit': 'Opslaan', 'cancel': 'Annuleren'}
+
+    def clean_text(self):
+
+        value = self.cleaned_data['text'] or ""
+
+        return removetags(value, 'script')
 
     class Meta:
         model = AnnouncementUpdate
