@@ -1,7 +1,8 @@
 from django.views.generic import TemplateView
 from djinn_announcements.models.announcement import Announcement
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
-from djinn_announcements.settings import SHOW_N_ANNOUNCEMENTS
+from djinn_announcements.settings import SHOW_N_ANNOUNCEMENTS, \
+    SHOW_N_SERVICEANNOUNCEMENTS
 
 
 class AnnouncementViewlet(TemplateView):
@@ -24,7 +25,7 @@ class AnnouncementViewlet(TemplateView):
 
         return ctx
 
-    def announcements(self, limit=5):
+    def announcements(self, limit=SHOW_N_ANNOUNCEMENTS):
 
         return Announcement.objects.filter(
             priority=0, serviceannouncement__isnull=True)[:limit]
@@ -46,7 +47,7 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
 
     template_name = "djinn_announcements/snippets/serviceannouncements_viewlet.html"
 
-    def announcements(self, limit=SHOW_N_ANNOUNCEMENTS):
+    def announcements(self, limit=SHOW_N_SERVICEANNOUNCEMENTS):
 
         try:
             priority_announcement = ServiceAnnouncement.objects.filter(priority=1)[0].pk
@@ -57,6 +58,6 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
             exclude(pk=priority_announcement).exclude(title="")[:limit]
 
     @property
-    def show_more(self, limit=SHOW_N_ANNOUNCEMENTS):
+    def show_more(self, limit=SHOW_N_SERVICEANNOUNCEMENTS):
 
         return self.announcements(limit=None).count() > limit
