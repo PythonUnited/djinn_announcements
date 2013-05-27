@@ -7,11 +7,13 @@ from djinn_announcements.models.announcement import Announcement
 class AnnouncementForm(BaseForm):
 
     text = forms.CharField(label=_("Announcement"),
+                           help_text=_("200 characters max"),
                            widget=forms.Textarea(
-            attrs={'rows': '5'}),
+            attrs={'rows': '5', 'class': 'count_characters', 
+                   'data-maxchars': '200'}),
                            max_length=200,
                            )
-
+    
     @property
     def labels(self):
 

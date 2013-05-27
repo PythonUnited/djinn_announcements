@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-21 16:36+0200\n"
+"POT-Creation-Date: 2013-05-27 10:20+0200\n"
 "PO-Revision-Date: 2013-03-28 13:55+0100\n"
 "Last-Translator: Duco Dokter <dokter@w20e.com>\n"
 "Language-Team: PythonUnited <info@pythonunited.com>\n"
@@ -42,15 +42,19 @@ msgstr ""
 msgid "Announcement"
 msgstr ""
 
-#: forms/announcement.py:18
-msgid "Save"
-msgstr ""
-
-#: forms/announcement.py:19
-msgid "Cancel"
+#: forms/announcement.py:10
+msgid "200 characters max"
 msgstr ""
 
 #: forms/announcement.py:20
+msgid "Save"
+msgstr ""
+
+#: forms/announcement.py:21
+msgid "Cancel"
+msgstr ""
+
+#: forms/announcement.py:22
 #: templates/djinn_announcements/snippets/announcements_viewlet.html:13
 #, fuzzy
 msgid "Add announcement"
