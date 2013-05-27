@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-03 15:39+0200\n"
+"POT-Creation-Date: 2013-05-21 16:36+0200\n"
 "PO-Revision-Date: 2013-03-28 13:55+0100\n"
 "Last-Translator: Duco Dokter <dokter@w20e.com>\n"
 "Language-Team: PythonUnited <info@pythonunited.com>\n"
@@ -42,40 +42,40 @@ msgstr ""
 msgid "Announcement"
 msgstr ""
 
-#: forms/announcement.py:17
+#: forms/announcement.py:18
 msgid "Save"
 msgstr ""
 
-#: forms/announcement.py:18
+#: forms/announcement.py:19
 msgid "Cancel"
 msgstr ""
 
-#: forms/announcement.py:19
-#: templates/djinn_announcements/snippets/announcements_viewlet.html:12
+#: forms/announcement.py:20
+#: templates/djinn_announcements/snippets/announcements_viewlet.html:13
 #, fuzzy
 msgid "Add announcement"
 msgstr "Service announcement"
 
-#: forms/announcementupdate.py:9 models/announcementupdate.py:9
+#: forms/announcementupdate.py:10 models/announcementupdate.py:10
 msgid "Date"
 msgstr ""
 
-#: forms/announcementupdate.py:15 forms/serviceannouncement.py:39
+#: forms/announcementupdate.py:16 forms/serviceannouncement.py:39
 msgid "Description"
 msgstr ""
 
 #: forms/serviceannouncement.py:11 models/serviceannouncement.py:14
-#: templates/djinn_announcements/serviceannouncement_detail.html:14
+#: templates/djinn_announcements/serviceannouncement_detail.html:13
 msgid "Start date"
 msgstr ""
 
 #: forms/serviceannouncement.py:18 models/serviceannouncement.py:15
-#: templates/djinn_announcements/serviceannouncement_detail.html:16
+#: templates/djinn_announcements/serviceannouncement_detail.html:15
 msgid "(Expected) end date"
 msgstr ""
 
 #: forms/serviceannouncement.py:26 models/announcement.py:11
-#: templates/djinn_announcements/serviceannouncement_detail.html:18
+#: templates/djinn_announcements/serviceannouncement_detail.html:17
 msgid "Status"
 msgstr ""
 
@@ -83,11 +83,11 @@ msgstr ""
 msgid "Priority"
 msgstr ""
 
-#: models/announcement.py:10 models/announcementupdate.py:10
+#: models/announcement.py:10 models/announcementupdate.py:11
 msgid "Text"
 msgstr ""
 
-#: models/announcement.py:41
+#: models/announcement.py:42
 msgid "announcements"
 msgstr ""
 
@@ -103,15 +103,26 @@ msgstr "Service announcements"
 msgid "serviceannouncements"
 msgstr ""
 
+#: templates/djinn_announcements/announcement_detail_modal.html:16
+msgid "Published on"
+msgstr ""
+
+#: templates/djinn_announcements/announcement_detail_modal.html:17
+msgid "Author"
+msgstr ""
+
+#: templates/djinn_announcements/announcement_detail_modal.html:23
+#: templates/djinn_announcements/serviceannouncement_add.html:25
 #: templates/djinn_announcements/serviceannouncement_edit.html:27
-#: templates/djinn_announcements/snippets/announcement_modal_detail.html:23
 msgid "Updates"
 msgstr ""
 
+#: templates/djinn_announcements/serviceannouncement_add.html:31
 #: templates/djinn_announcements/serviceannouncement_edit.html:33
 msgid "Update"
 msgstr ""
 
+#: templates/djinn_announcements/serviceannouncement_add.html:34
 #: templates/djinn_announcements/serviceannouncement_edit.html:36
 msgid "Remove"
 msgstr ""
@@ -131,29 +142,26 @@ msgstr "Service announcement"
 msgid "Delete announcement"
 msgstr "Service announcement"
 
-#: templates/djinn_announcements/snippets/announcement_modal_detail.html:16
-msgid "Published on"
-msgstr ""
-
-#: templates/djinn_announcements/snippets/announcement_modal_detail.html:17
-msgid "Author"
-msgstr ""
-
 #: templates/djinn_announcements/snippets/announcements_viewlet.html:7
 msgid "Announcements"
 msgstr ""
 
-#: templates/djinn_announcements/snippets/announcements_viewlet.html:34
-#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:45
+#: templates/djinn_announcements/snippets/announcements_viewlet.html:36
+#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:54
 #, fuzzy
 msgid "No announcements"
 msgstr "Service announcements"
 
-#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:8
+#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:6
 #, fuzzy
 msgid "Service announcements"
 msgstr "Service announcements"
 
-#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:39
+#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:12
+#, fuzzy
+msgid "Add service announcement"
+msgstr "Service announcements"
+
+#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:48
 msgid "All service announcements"
 msgstr ""

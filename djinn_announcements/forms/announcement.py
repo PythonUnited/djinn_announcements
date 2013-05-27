@@ -8,7 +8,8 @@ class AnnouncementForm(BaseForm):
 
     text = forms.CharField(label=_("Announcement"),
                            widget=forms.Textarea(
-            attrs={'rows': '5'})
+            attrs={'rows': '5'}),
+                           max_length=200,
                            )
 
     @property
