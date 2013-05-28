@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-27 10:20+0200\n"
+"POT-Creation-Date: 2013-05-28 15:27+0200\n"
 "PO-Revision-Date: 2013-03-28 13:55+0100\n"
 "Last-Translator: Duco Dokter <dokter@w20e.com>\n"
 "Language-Team: PythonUnited <info@pythonunited.com>\n"
@@ -38,17 +38,19 @@ msgstr ""
 msgid "High"
 msgstr ""
 
-#: forms/announcement.py:9 models/announcement.py:38
-msgid "Announcement"
-msgstr ""
+#: forms/announcement.py:9
+#, fuzzy
+msgid "Announcement text"
+msgstr "Service announcement"
 
 #: forms/announcement.py:10
 msgid "200 characters max"
 msgstr ""
 
 #: forms/announcement.py:20
-msgid "Save"
-msgstr ""
+#, fuzzy
+msgid "Save announcement"
+msgstr "Service announcements"
 
 #: forms/announcement.py:21
 msgid "Cancel"
@@ -89,6 +91,10 @@ msgstr ""
 
 #: models/announcement.py:10 models/announcementupdate.py:11
 msgid "Text"
+msgstr ""
+
+#: models/announcement.py:38
+msgid "Announcement"
 msgstr ""
 
 #: models/announcement.py:42

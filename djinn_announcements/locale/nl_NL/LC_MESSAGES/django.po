@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: djinn_announcements\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-27 10:20+0200\n"
+"POT-Creation-Date: 2013-05-28 15:27+0200\n"
 "PO-Revision-Date: 2013-05-27 10:21+0100\n"
 "Last-Translator: Duco Dokter <dokter@w20e.com>\n"
 "Language-Team: Djinn <djinn@pythonunited.com>\n"
@@ -39,8 +39,8 @@ msgid "High"
 msgstr "Hoog"
 
 #: forms/announcement.py:9
-#: models/announcement.py:38
-msgid "Announcement"
+#, fuzzy
+msgid "Announcement text"
 msgstr "Aankondiging"
 
 #: forms/announcement.py:10
@@ -48,8 +48,9 @@ msgid "200 characters max"
 msgstr "Maximaal 200 karakters"
 
 #: forms/announcement.py:20
-msgid "Save"
-msgstr "Opslaan"
+#, fuzzy
+msgid "Save announcement"
+msgstr "Storingen/werkzaamheden"
 
 #: forms/announcement.py:21
 msgid "Cancel"
@@ -60,43 +61,40 @@ msgstr "Annuleren"
 msgid "Add announcement"
 msgstr "Aankondiging toevoegen"
 
-#: forms/announcementupdate.py:10
-#: models/announcementupdate.py:10
+#: forms/announcementupdate.py:10 models/announcementupdate.py:10
 msgid "Date"
 msgstr "Datum"
 
-#: forms/announcementupdate.py:16
-#: forms/serviceannouncement.py:39
+#: forms/announcementupdate.py:16 forms/serviceannouncement.py:39
 msgid "Description"
 msgstr "Korte tekst"
 
-#: forms/serviceannouncement.py:11
-#: models/serviceannouncement.py:14
+#: forms/serviceannouncement.py:11 models/serviceannouncement.py:14
 #: templates/djinn_announcements/serviceannouncement_detail.html:13
 msgid "Start date"
 msgstr "Startdatum"
 
-#: forms/serviceannouncement.py:18
-#: models/serviceannouncement.py:15
+#: forms/serviceannouncement.py:18 models/serviceannouncement.py:15
 #: templates/djinn_announcements/serviceannouncement_detail.html:15
 msgid "(Expected) end date"
 msgstr "(Verwachtte) einddatum"
 
-#: forms/serviceannouncement.py:26
-#: models/announcement.py:11
+#: forms/serviceannouncement.py:26 models/announcement.py:11
 #: templates/djinn_announcements/serviceannouncement_detail.html:17
 msgid "Status"
 msgstr "Status"
 
-#: forms/serviceannouncement.py:33
-#: models/announcement.py:12
+#: forms/serviceannouncement.py:33 models/announcement.py:12
 msgid "Priority"
 msgstr "Prioriteit"
 
-#: models/announcement.py:10
-#: models/announcementupdate.py:11
+#: models/announcement.py:10 models/announcementupdate.py:11
 msgid "Text"
 msgstr "Tekst"
+
+#: models/announcement.py:38
+msgid "Announcement"
+msgstr "Aankondiging"
 
 #: models/announcement.py:42
 msgid "announcements"
@@ -173,6 +171,9 @@ msgstr "Alle Storingen/werkzaamheden"
 #: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:48
 msgid "All service announcements"
 msgstr "Alle Storingen/werkzaamheden"
+
+#~ msgid "Save"
+#~ msgstr "Opslaan"
 
 #~ msgid "Title"
 #~ msgstr "Titel"

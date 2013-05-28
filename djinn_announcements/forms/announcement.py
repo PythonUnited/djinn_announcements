@@ -6,7 +6,7 @@ from djinn_announcements.models.announcement import Announcement
 
 class AnnouncementForm(BaseForm):
 
-    text = forms.CharField(label=_("Announcement"),
+    text = forms.CharField(label=_("Announcement text"),
                            help_text=_("200 characters max"),
                            widget=forms.Textarea(
             attrs={'rows': '5', 'class': 'count_characters', 
@@ -17,7 +17,7 @@ class AnnouncementForm(BaseForm):
     @property
     def labels(self):
 
-        return {'submit': _('Save'),
+        return {'submit': _('Save announcement'),
                 'cancel': _('Cancel'),
                 'header': _('Add announcement')}
 
