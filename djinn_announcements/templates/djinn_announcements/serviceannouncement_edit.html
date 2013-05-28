@@ -1,21 +1,21 @@
 {% extends "djinn_contenttypes/base_edit.html" %}
 
-{% load form_tags i18n %}
+{% load bootstrap i18n %}
 
 
 {% block formfields %}
 
-{% control form.title %}
+{{ form.title|bootstrap }}
 
-{% control form.start_date %}
+{{ form.start_date|bootstrap }}
 
-{% control form.end_date %}
+{{ form.end_date|bootstrap }}
 
-{% control form.status %}
+{{ form.status|bootstrap }}
 
-{% control form.priority %}
+{{ form.priority|bootstrap }}
 
-{% control form.text %}
+{{ form.text|bootstrap }}
 
 <section id="updates-management" class="control">
   {{ updatesform.management_form }}
