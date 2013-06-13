@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from lxml.html.soupparser import fromstring
 from djinn_contenttypes.forms.base import BaseForm
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.settings import SERVICEANNOUNCEMENT_STATUS_VOCAB, \
@@ -37,13 +38,27 @@ class ServiceAnnouncementForm(BaseForm):
                                   )
 
     text = forms.CharField(label=_("Description"),
-                           max_length=150,
                            help_text="Maximaal 150 karakters",
                            widget=forms.Textarea(
             attrs={'class': 'full wysiwyg',
                    'data-maxchars': 150,
                    'rows': '5'})
     )
+
+    def clean_text(self):
+
+        data = self.cleaned_data['text'] or ""
+
+        html = fromstring(data)
+
+        chars = len(html.text_content())
+
+        if chars > 150:
+            raise forms.ValidationError(
+                _(u'Ensure this value has at most 150 characters '
+                  '(it has %d).' % chars))
+
+        return data
 
     class Meta(BaseForm.Meta):
         model = ServiceAnnouncement

@@ -11,9 +11,8 @@ class AnnouncementForm(BaseForm):
                            widget=forms.Textarea(
             attrs={'rows': '5', 'class': 'count_characters', 
                    'data-maxchars': '200'}),
-                           max_length=200,
                            )
-    
+
     @property
     def labels(self):
 

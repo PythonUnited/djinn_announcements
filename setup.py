@@ -10,7 +10,8 @@ requires = [
     'django',
     'django-bootstrap-forms',
     'djinn_contenttypes',
-    'django-haystack'
+    'django-haystack',
+    'lxml'
     ]
 
 setup(name='djinn_announcements',
