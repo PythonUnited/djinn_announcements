@@ -39,6 +39,7 @@ class ServiceAnnouncementForm(BaseForm):
 
     text = forms.CharField(label=_("Description"),
                            help_text="Maximaal 150 karakters",
+                           max_length=150,
                            widget=forms.Textarea(
             attrs={'class': 'full wysiwyg',
                    'data-maxchars': 150,

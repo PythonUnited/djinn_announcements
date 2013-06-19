@@ -8,6 +8,7 @@ class AnnouncementForm(BaseForm):
 
     text = forms.CharField(label=_("Announcement text"),
                            help_text=_("200 characters max"),
+                           max_length=200,
                            widget=forms.Textarea(
             attrs={'rows': '5', 'class': 'count_characters', 
                    'data-maxchars': '200'}),
