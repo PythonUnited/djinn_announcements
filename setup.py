@@ -15,11 +15,11 @@ requires = [
     ]
 
 setup(name='djinn_announcements',
-      version="1.0.0-snapshot",
-      description='PythonUnited Intranet Announcements',
+      version="1.0.0",
+      description='Djinn Intranet Announcements',
       long_description=README + '\n\n' +  CHANGES,
       classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Framework :: Django",
         "Intended Audience :: Developers",
         "License :: Freely Distributable",
