@@ -1,16 +1,20 @@
-from haystack import site, indexes
+from haystack import indexes
 from djinn_announcements.models.announcement import Announcement
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
-from pgsearch.base import ContentRealTimeSearchIndex
+from pgsearch.base import ContentSearchIndex
 
 
-class AnnouncementIndex(ContentRealTimeSearchIndex):
+class AnnouncementIndex(ContentSearchIndex):
 
     """ Index for announcements """
 
     def index_queryset(self):
 
         return self.model.objects.filter(serviceannouncement__isnull=True)
+
+    def get_model(self):
+
+        return Announcement
 
 
 class ServiceAnnouncementIndex(AnnouncementIndex):
@@ -19,6 +23,7 @@ class ServiceAnnouncementIndex(AnnouncementIndex):
 
         return self.model.objects.all()
 
+    def get_model(self):
 
-site.register(Announcement, AnnouncementIndex)
-site.register(ServiceAnnouncement, ServiceAnnouncementIndex)
+        return ServiceAnnouncement
+

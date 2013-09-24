@@ -16,6 +16,7 @@ def create_permissions(**kwargs):
         app_label='djinn_announcements', 
         model='serviceannouncement')
 
+    role_user = Role.objects.get(name=USER_ROLE_ID)
     role_owner = Role.objects.get(name=OWNER_ROLE_ID)
 
     add, created = Permission.objects.get_or_create(
@@ -33,6 +34,7 @@ def create_permissions(**kwargs):
         content_type=announcement, 
         defaults={'name': 'Delete announcement'})
 
+    role_user.add_permission_if_missing(add)
     role_owner.add_permission_if_missing(edit)
     role_owner.add_permission_if_missing(delete)
 

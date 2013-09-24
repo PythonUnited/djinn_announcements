@@ -6,7 +6,7 @@
 {% load djinn_contenttypes %}
 
 {% block title %}
-<a href="{% url djinn_announcements_view_serviceannouncement pk=modelinstance.pk slug=modelinstance.slug %}">
+<a href="{% url 'djinn_announcements_view_serviceannouncement' pk=modelinstance.pk slug=modelinstance.slug %}">
   {{ modelinstance.title|abbreviate:80 }}
 </a>
 {% endblock %}

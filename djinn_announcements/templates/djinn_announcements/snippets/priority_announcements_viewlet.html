@@ -10,12 +10,12 @@
       <h2>
         <a data-toggle="modal"
            data-target="#MyModal"
-           href="{% url djinn_announcements_view_serviceannouncement announcement.pk announcement.slug %}?modal=1">
+           href="{% url 'djinn_announcements_view_serviceannouncement' announcement.pk announcement.slug %}?modal=1">
           {{ announcement.title }}
         </a>
         {% ifpermission object request.user contenttypes.change_contenttype %}
         <span class="controls">
-          <a href="{% url djinn_announcements_edit_serviceannouncement announcement.id %}">
+          <a href="{% url 'djinn_announcements_edit_serviceannouncement' announcement.id %}">
             <i class="icon-pencil"></i>
           </a>
         </span>

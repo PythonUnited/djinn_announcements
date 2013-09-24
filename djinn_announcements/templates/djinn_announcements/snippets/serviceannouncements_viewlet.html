@@ -23,7 +23,7 @@
     {% for announcement in view.announcements %}
     <li class="announcement">
       <a data-target="#MyModal"
-         href="{% url djinn_announcements_view_serviceannouncement announcement.id announcement.slug %}?modal=1"
+         href="{% url 'djinn_announcements_view_serviceannouncement' announcement.id announcement.slug %}?modal=1"
          data-toggle="modal">
         {{ announcement.title_slice }}
       </a>
@@ -45,7 +45,7 @@
   </ul>
 
   {% if view.show_more %}
-  <a href="{% url haystack_search %}?content_type=serviceannouncement&sortorder=-changed&restrict_filters=">{% trans "All service announcements" %}</a>
+  <a href="{% url 'haystack_search' %}?content_type=serviceannouncement&sortorder=-changed&restrict_filters=">{% trans "All service announcements" %}</a>
   {% endif %}
 
   {% else %}
