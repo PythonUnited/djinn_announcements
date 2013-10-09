@@ -4,24 +4,24 @@ from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from pgsearch.base import ContentSearchIndex
 
 
-class AnnouncementIndex(ContentSearchIndex):
+class AnnouncementIndex(ContentSearchIndex, indexes.Indexable):
 
     """ Index for announcements """
 
-    def index_queryset(self):
+    def index_queryset(self, using=None):
 
-        return self.model.objects.filter(serviceannouncement__isnull=True)
+        return self.get_model()._default_manager.filter(serviceannouncement__isnull=True)
 
     def get_model(self):
 
         return Announcement
 
 
-class ServiceAnnouncementIndex(AnnouncementIndex):
+class ServiceAnnouncementIndex(AnnouncementIndex, indexes.Indexable):
 
-    def index_queryset(self):
+    def index_queryset(self, using=None):
 
-        return self.model.objects.all()
+        return self.get_model()._default_manager.all()
 
     def get_model(self):
 
