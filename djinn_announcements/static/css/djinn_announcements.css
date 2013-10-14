@@ -3,18 +3,19 @@
 }
 
 /* announcements */
-.update {
+.announcementupdate {
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
     background-color: #eeeeee;
 }
 
-.update header .controls {
+.announcementupdate header .controls {
     float: right;
 }
 
-.update input[name$=DELETE], .update label[for$=DELETE] {
+.announcementupdate input[name$=DELETE], 
+.announcementupdate label[for$=DELETE] {
     display: none !important;
 }
 
