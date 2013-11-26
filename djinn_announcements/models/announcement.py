@@ -38,5 +38,5 @@ CTRegistry.register("announcement",
                      "label": _("Announcement"),
                      "global_add": False,
                      "add_permission": "djinn_announcements.add_announcement",
-                     "filter_label": "",
+                     "filter_label": _("Announcement"),
                      "name_plural": _("announcements")})
