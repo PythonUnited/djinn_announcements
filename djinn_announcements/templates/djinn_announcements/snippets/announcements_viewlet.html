@@ -6,7 +6,7 @@
     <h2>
       {% trans "Announcements" %} 
       
-      {% ifpermission "" request.user djinn_announcements.add_announcement %}
+      {% ifpermission "" request.user 'djinn_announcements.add_announcement' %}
       <span class="controls">
         <a class="add-inline"
            data-toggle="tooltip"

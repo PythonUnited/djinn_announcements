@@ -8,6 +8,9 @@ from djinn_announcements.settings import SERVICEANNOUNCEMENT_STATUS_VOCAB, \
 
 
 class ServiceAnnouncementForm(BaseForm):
+
+    # Translators: serviceannouncement edit general help
+    help = _("Edit serviceannouncement")
     
     start_date = forms.DateTimeField(label=_("Start date"),
                                      widget=forms.DateTimeInput(
