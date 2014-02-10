@@ -3,7 +3,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models import signals
 from django.contrib.auth.models import Permission
 from pgauth.models import Role
-from pgauth.settings import USER_ROLE_ID, OWNER_ROLE_ID
+from pgauth.settings import USER_ROLE_ID, OWNER_ROLE_ID, EDITOR_ROLE_ID
 
 
 def create_permissions(**kwargs):
@@ -18,6 +18,7 @@ def create_permissions(**kwargs):
 
     role_user = Role.objects.get(name=USER_ROLE_ID)
     role_owner = Role.objects.get(name=OWNER_ROLE_ID)
+    role_editor, created = Role.objects.get_or_create(name=EDITOR_ROLE_ID)
 
     add, created = Permission.objects.get_or_create(
         codename="add_announcement", 
@@ -36,6 +37,7 @@ def create_permissions(**kwargs):
 
     role_user.add_permission_if_missing(add)
     role_owner.add_permission_if_missing(edit)
+    role_editor.add_permission_if_missing(edit)
     role_owner.add_permission_if_missing(delete)
 
     add, created = Permission.objects.get_or_create(
@@ -54,6 +56,7 @@ def create_permissions(**kwargs):
         defaults={'name': 'Delete service announcement'})
 
     role_owner.add_permission_if_missing(edit)
+    role_editor.add_permission_if_missing(edit)
     role_owner.add_permission_if_missing(delete)
 
 

@@ -2,10 +2,13 @@
 
 {% load bootstrap i18n %}
 
+{% block metainfo %}{% endblock %}
 
 {% block formfields %}
 
 {{ form.title|bootstrap }}
+
+{{ form.text|bootstrap }}
 
 {{ form.start_date|bootstrap }}
 
@@ -15,13 +18,15 @@
 
 {{ form.priority|bootstrap }}
 
-{{ form.text|bootstrap }}
+{{ form.owner|bootstrap }}
+
+{{ form.shares|bootstrap }}
 
 <section id="updates-management" class="control">
   {{ updatesform.management_form }}
 </section>
 
-{% if not object.is_initiated %}  
+{% if object %}  
 <section id="updates" class="control editmode">
   <header>
     <h2>{% trans "Updates" %}</h2>

@@ -22,9 +22,8 @@
   <ul>
     {% for announcement in view.announcements %}
     <li class="announcement">
-      <a data-target="#MyModal"
-         href="{% url 'djinn_announcements_view_serviceannouncement' announcement.id announcement.slug %}?modal=1"
-         data-toggle="modal">
+      <a
+         href="{% url 'djinn_announcements_view_serviceannouncement' announcement.id announcement.slug %}"
         {{ announcement.title_slice }}
       </a>
       {% if announcement.status > -1 %}

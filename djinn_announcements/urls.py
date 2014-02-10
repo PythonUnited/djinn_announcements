@@ -2,7 +2,7 @@ from django.conf.urls.defaults import patterns, url, include
 from djinn_contenttypes.views.utils import generate_model_urls
 from views.announcementviewlet import AnnouncementViewlet, \
     PriorityAnnouncementViewlet, ServiceAnnouncementViewlet
-from models import ServiceAnnouncement, Announcement , AnnouncementUpdate
+from models import ServiceAnnouncement, Announcement, AnnouncementUpdate
 
 
 _urlpatterns = patterns(
@@ -16,7 +16,7 @@ _urlpatterns = patterns(
     url(r"^priority$",
         PriorityAnnouncementViewlet.as_view(),
         name="djinn_priority_announcements"),
-    
+
     url(r"^service$",
         ServiceAnnouncementViewlet.as_view(),
         name="djinn_service_announcements"),

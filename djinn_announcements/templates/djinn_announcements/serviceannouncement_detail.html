@@ -2,6 +2,8 @@
 
 {% load auth_tags i18n contentaction_tags %}
 
+{% block metainfo %}{% endblock %}
+
 {% block content %}
 
 <section class="intro">
@@ -38,15 +40,5 @@
 
 </section>
 {% endif %}  
-
-{% endblock %}
-
-{% block right-pane %}
-
-<div class="action-bar">
-  {% ifpermission object request.user contenttypes.change_contenttype %}
-  {% edit_content object 'Bewerken' '' %}
-  {% endifpermission %}
-</div>
 
 {% endblock %}
