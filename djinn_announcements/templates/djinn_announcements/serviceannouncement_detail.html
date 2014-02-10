@@ -24,7 +24,7 @@
 <section id="updates" class="editmode">
   <header>
     <h2>Updates
-      {% ifpermission object request.user contenttypes.change_contenttype %}
+      {% ifpermission object request.user 'contenttypes.change_contenttype' %}
       <span class="controls">
         <a class="add-inline" href="{% url 'djinn_announcements_add_announcementupdate' object.id %}" target="#update_list">
           <i class="icon-plus"></i>
@@ -42,3 +42,4 @@
 {% endif %}  
 
 {% endblock %}
+

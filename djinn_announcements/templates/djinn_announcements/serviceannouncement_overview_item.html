@@ -18,9 +18,9 @@
 {% block actions %}
 <div class="overviewactions">
   <ul>
-    {% has_permission modelinstance request.user contenttypes.change_contenttype %}
+    {% ifpermission modelinstance request.user 'contenttypes.change_contenttype' %}
     <li>{% edit_content modelinstance 'Bewerken' '' %}</li>
-    {% endif %}
+    {% endifpermission %}
   </ul>
 </div>
 {% endblock %}
