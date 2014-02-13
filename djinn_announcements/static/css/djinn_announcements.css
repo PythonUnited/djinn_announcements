@@ -7,7 +7,14 @@
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+.announcementupdate header {
     background-color: #eeeeee;
+}
+
+.announcementupdate .update-options {
+    padding: 0 10px;
 }
 
 .announcementupdate header .controls {
