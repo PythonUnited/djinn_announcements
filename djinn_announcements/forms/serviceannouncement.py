@@ -62,6 +62,7 @@ class ServiceAnnouncementForm(BaseSharingForm):
 
         self.init_relation_fields()
         self.init_share_fields()
+        self.fields['owner'].initial = kwargs['user'].profile
 
     def save(self, commit=True):
 
