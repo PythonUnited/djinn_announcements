@@ -8,9 +8,7 @@
   <div class="alert alert-error editmode">
     <header>
       <h2>
-        <a data-toggle="modal"
-           data-target="#MyModal"
-           href="{% url 'djinn_announcements_view_serviceannouncement' announcement.pk announcement.slug %}?modal=1">
+        <a href="{% url 'djinn_announcements_view_serviceannouncement' announcement.pk announcement.slug %}">
           {{ announcement.title }}
         </a>
         {% ifpermission object request.user contenttypes.change_contenttype %}
