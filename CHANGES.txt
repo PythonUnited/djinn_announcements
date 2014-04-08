@@ -1,3 +1,7 @@
+1.1.1
+=====
+* Removed index for announcements
+
 1.1.0
 =====
 * Better integration with djinn_contenttypes
