@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 from lxml.html.soupparser import fromstring
 from djinn_contenttypes.forms.base import BaseSharingForm
+from djinn_contenttypes.forms.fields import NoScriptCharField
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.settings import SERVICEANNOUNCEMENT_STATUS_VOCAB, \
     ANNOUNCEMENT_PRIORITY_VOCAB
@@ -12,10 +13,15 @@ class ServiceAnnouncementForm(BaseSharingForm):
     # Translators: serviceannouncement edit general help
     help = _("Edit serviceannouncement")
 
-    text = forms.CharField(label=_("Description"),
-                           help_text="Maximaal 300 karakters",
-                           max_length=300,
-                           widget=forms.Textarea()
+    text = NoScriptCharField(
+        label=_("Description"),
+        required=True,
+        widget=forms.Textarea(
+            attrs={'class': 'full wysiwyg',
+                 'data-maxchars': '600',
+                 'jsinit': 'pg.init_wysiwyg',
+                 'jsinit_args': '600'}
+        )
     )
 
     start_date = forms.DateTimeField(
