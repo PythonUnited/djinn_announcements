@@ -34,7 +34,7 @@
       
       <time>{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</time>
       
-      {{ announcement.text|safe }}
+      {{ announcement.text|safe|truncatechars:"150" }}
       
       {% if announcement.updates.all.exists %}
       <time class="pull-left">Update {{ announcement.sorted_updates.0.date }}</time>: {{ announcement.sorted_updates.0.text|safe }}

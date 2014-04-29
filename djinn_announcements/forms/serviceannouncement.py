@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from markupfield.widgets import MarkupTextarea
 from djinn_contenttypes.forms.base import BaseSharingForm
 from djinn_forms.widgets.link import LinkWidget
+from djinn_contenttypes.forms.fields import NoScriptCharField
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.settings import SERVICEANNOUNCEMENT_STATUS_VOCAB, \
     ANNOUNCEMENT_PRIORITY_VOCAB
@@ -14,7 +15,7 @@ class ServiceAnnouncementForm(BaseSharingForm):
     # Translators: serviceannouncement edit general help
     help = _("Edit serviceannouncement")
 
-    text = forms.CharField(
+    text = NoScriptCharField(
         # Translators: serviceannouncement edit text label
         label=_("Description"),
         help_text="Maximaal 500 karakters",
