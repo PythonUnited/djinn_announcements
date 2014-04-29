@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from markupfield.fields import MarkupField
 from djinn_contenttypes.registry import CTRegistry
 from djinn_contenttypes.models.base import BaseContent
 from djinn_announcements.settings import ANNOUNCEMENT_STATUS
@@ -7,14 +8,14 @@ from djinn_announcements.settings import ANNOUNCEMENT_STATUS
 
 class Announcement(BaseContent):
 
-    text = models.TextField(_('Text'))
-    status = models.IntegerField(_('Status'), blank=True, null=True) 
+    text = MarkupField(_('Text'), markup_type='plain', null=True, blank=True)
+    status = models.IntegerField(_('Status'), blank=True, null=True)
     priority = models.IntegerField(_("Priority"), default=0)
 
     @property
     def sorted_updates(self):
 
-         return self.updates.order_by("-date")
+        return self.updates.order_by("-date")
 
     def __unicode__(self):
 
@@ -32,7 +33,7 @@ class Announcement(BaseContent):
         ordering = ('-created', )
 
 
-CTRegistry.register("announcement", 
+CTRegistry.register("announcement",
                     {"class": Announcement,
                      "app": "djinn_announcements",
                      "label": _("Announcement"),

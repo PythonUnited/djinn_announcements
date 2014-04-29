@@ -14,10 +14,11 @@ class ServiceAnnouncement(Announcement):
     start_date = models.DateTimeField(_('Start date'), default=datetime.now)
     end_date = models.DateTimeField(_('(Expected) end date'), null=True,
                                     blank=True, default=None)
-    
+    link = models.CharField(_('Link'), max_length=200, null=True, blank=True)
+
     @property
     def slug(self):
-        
+
         return slugify(self.title)
 
     class Meta:
@@ -25,11 +26,11 @@ class ServiceAnnouncement(Announcement):
         ordering = ('-created', )
 
 
-CTRegistry.register("serviceannouncement", 
+CTRegistry.register("serviceannouncement",
                     {"class": ServiceAnnouncement,
                      "app": "djinn_announcements",
                      "label": _("ServiceAnnouncement"),
-                     "add_permission": \
-                         "djinn_announcements.add_serviceannouncement",
+                     "add_permission":
+                     "djinn_announcements.add_serviceannouncement",
                      "filter_label": _("ServiceAnnouncements"),
                      "name_plural": _("serviceannouncements")})

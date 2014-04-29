@@ -16,7 +16,7 @@ class UpdateFormMixin(object):
                                      AnnouncementUpdate,
                                      form=AnnouncementUpdateForm,
                                      extra=1)(*args, **kwargs)
-    
+
     def get_context_data(self, **kwargs):
 
         context = super(UpdateFormMixin, self).get_context_data(**kwargs)
@@ -41,12 +41,12 @@ class UpdateFormMixin(object):
 
         if form.is_valid():
             # Do not return here! This sets self.object
-            #            
+            #
             self.form_valid(form)
         else:
             is_valid = False
 
-        formset = self._create_formset(request.POST, request.FILES, 
+        formset = self._create_formset(request.POST, request.FILES,
                                        instance=self.object)
         if formset.is_valid() and self.object:
             formset.save()
@@ -57,9 +57,9 @@ class UpdateFormMixin(object):
             ctx['updatesform'] = formset
 
             def to_label(err):
-                              
+
                 return (formset.forms[0].fields[err[0]].label, err[1])
-            
+
             ctx['errors'] = map(to_label, formset.errors[0].items())
 
         if not is_valid:
