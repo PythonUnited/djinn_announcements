@@ -1,6 +1,7 @@
 from django.forms.models import inlineformset_factory
 from django.http import HttpResponseRedirect
-from djinn_contenttypes.views.base import CreateView, UpdateView
+from djinn_contenttypes.views.base import CreateView, UpdateView, DetailView
+from djinn_core.utils import urn_to_object
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.forms.serviceannouncement import \
     ServiceAnnouncementForm
@@ -27,11 +28,10 @@ class UpdateFormMixin(object):
 
     def post(self, request, *args, **kwargs):
 
-        if self.request.POST.get("action", None) == "cancel":
-            url = self.request.user.profile.get_absolute_url()
-            return HttpResponseRedirect(url)
-
         self.object = self.get_object()
+
+        if self.request.POST.get("action", None) == "cancel":
+            return HttpResponseRedirect(self.view_url)
 
         form_class = self.get_form_class()
         form = self.get_form(form_class)
@@ -66,6 +66,38 @@ class UpdateFormMixin(object):
             return self.render_to_response(ctx)
         else:
             return HttpResponseRedirect(self.get_success_url())
+
+
+class ServiceAnnouncementView(DetailView):
+
+    model = ServiceAnnouncement
+
+    @property
+    def link(self):
+
+        _link = (self.object.link or "").split("::")[0]
+
+        if _link.startswith("urn"):
+            return urn_to_object(_link).get_absolute_url()
+        else:
+            return _link
+
+    @property
+    def link_target(self):
+        try:
+            return (self.object.link or "").split("::")[1]
+        except:
+            return None
+
+    @property
+    def link_title(self):
+
+        _link = (self.object.link or "").split("::")[0]
+
+        if _link.startswith("urn"):
+            return urn_to_object(self.object.link).title
+        else:
+            return _link
 
 
 class ServiceAnnouncementCreateView(UpdateFormMixin, CreateView):

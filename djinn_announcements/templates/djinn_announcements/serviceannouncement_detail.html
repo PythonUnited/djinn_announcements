@@ -1,6 +1,6 @@
 {% extends "djinn_contenttypes/base_detail.html" %}
 
-{% load auth_tags i18n contentaction_tags %}
+{% load auth_tags i18n djinn_contenttypes %}
 
 {% block metainfo %}{% endblock %}
 
@@ -17,6 +17,15 @@
     <dt>{% trans "(Expected) end date" %}</dt><dd>{{ object.end_date }}</dd>
     {% endif %}
     <dt>{% trans "Status" %}</dt><dd>{{ object.formatted_status }}</dd>
+
+    {% if object.link %}
+    <dt>{% trans "Link" %}</dt>
+    <dd>
+      <a href="{{ view.link }}" target="{{ view.link_target }}">
+        {{ view.link_title|abbreviate:50 }}
+      </a>
+    </dd>
+    {% endif %}
   </dl>
 </section>
 
@@ -42,4 +51,3 @@
 {% endif %}  
 
 {% endblock %}
-

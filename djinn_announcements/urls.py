@@ -22,7 +22,9 @@ _urlpatterns = patterns(
         name="djinn_service_announcements"),
     )
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
+
     (r'^announcements/', include(_urlpatterns)),
     (r'^announcements/', include(generate_model_urls(Announcement))),
     (r'^announcements/', include(generate_model_urls(ServiceAnnouncement))),
