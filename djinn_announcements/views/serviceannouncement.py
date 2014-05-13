@@ -1,7 +1,6 @@
 from django.forms.models import inlineformset_factory
 from django.http import HttpResponseRedirect
-from djinn_contenttypes.views.base import CreateView, UpdateView, DetailView
-from djinn_core.utils import urn_to_object
+from djinn_contenttypes.views.base import CreateView, UpdateView
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.forms.serviceannouncement import \
     ServiceAnnouncementForm
@@ -31,7 +30,7 @@ class UpdateFormMixin(object):
         self.object = self.get_object()
 
         if self.request.POST.get("action", None) == "cancel":
-            return HttpResponseRedirect(self.view_url)
+            return self.handle_cancel()
 
         form_class = self.get_form_class()
         form = self.get_form(form_class)
