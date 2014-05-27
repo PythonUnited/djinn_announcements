@@ -1,3 +1,11 @@
+1.2.0
+=====
+* Several changes to 
+* PEP8 fixes
+* i18n fixes
+* link field now uses djinn_forms link field
+* moved text fields to markup fields
+
 1.1.1
 =====
 * Removed index for announcements
