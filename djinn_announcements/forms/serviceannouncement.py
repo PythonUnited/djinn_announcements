@@ -44,6 +44,12 @@ class ServiceAnnouncementForm(BaseSharingForm):
             )
         )
 
+    remove_after_publish_to = forms.BooleanField(
+        # Translators: news remove_after_end label
+        label=_("Remove after end date"),
+        required=False
+        )
+
     status = forms.IntegerField(
         # Translators: serviceannouncement edit status label
         label=_("Status"),
