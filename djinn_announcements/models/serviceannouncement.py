@@ -15,7 +15,7 @@ class ServiceAnnouncement(Announcement):
     end_date = models.DateTimeField(_('(Expected) end date'), null=True,
                                     blank=True, default=None)
     remove_after_publish_to = models.BooleanField(
-        _('Remove the content ater publication to has past'), default=False)
+        _('Remove the content after publication to has past'), default=False)
     link = models.CharField(_('Link'), max_length=200, null=True, blank=True)
 
     @property
