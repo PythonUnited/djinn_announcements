@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-10 20:46+0100\n"
+"POT-Creation-Date: 2015-01-06 14:54+0100\n"
 "PO-Revision-Date: 2013-03-28 13:55+0100\n"
 "Last-Translator: Duco Dokter <dokter@w20e.com>\n"
 "Language-Team: PythonUnited <info@pythonunited.com>\n"
@@ -146,6 +146,7 @@ msgid "Updates"
 msgstr ""
 
 #: templates/djinn_announcements/announcement_detail_modal.html:16
+msgctxt "announcement_published"
 msgid "Published on"
 msgstr ""
 
