@@ -149,6 +149,9 @@ msgctxt "announcement_published"
 msgid "Published on"
 msgstr "Geplaatst op"
 
+msgid "Published_on"
+msgstr "Geplaatst op"
+
 #: templates/djinn_announcements/announcement_detail_modal.html:17
 msgid "Author"
 msgstr "Auteur"

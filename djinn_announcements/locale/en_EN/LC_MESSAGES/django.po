@@ -150,6 +150,9 @@ msgctxt "announcement_published"
 msgid "Published on"
 msgstr ""
 
+msgid "Published_on"
+msgstr ""
+
 #: templates/djinn_announcements/announcement_detail_modal.html:17
 msgid "Author"
 msgstr ""
