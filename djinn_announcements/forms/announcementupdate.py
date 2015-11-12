@@ -38,3 +38,6 @@ class AnnouncementUpdateForm(PartialUpdateMixin, forms.ModelForm):
     class Meta:
         model = AnnouncementUpdate
         widgets = {'announcement': forms.HiddenInput()}
+        fields = '__all__'
+
+
