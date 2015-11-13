@@ -3,8 +3,7 @@
 <section id="announcements" class="editmode">
   
   <header>
-    <h2>
-      {% trans "Announcements" %} 
+    <h1>{% trans "Announcements" %}</h1>
       
       {% ifpermission "" request.user 'djinn_announcements.add_announcement' %}
       <span class="controls">
@@ -17,6 +16,11 @@
            href="{% url 'djinn_announcements_add_announcement' %}">
           <i class="icon-plus"></i>
         </a>
+        <div class="help">
+            <div class="help-tooltip">
+                {% trans "tooltip-add-serviceannouncement" %}
+            </div>
+        </div>
       </span>
       {% endifpermission %}
     </h2>
