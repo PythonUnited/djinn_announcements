@@ -26,15 +26,15 @@
     </h2>
   </header>
 
-  <ul id="announcementlist"
-      {% if announcements|length = 0 %}class="hide"{% endif %}
+  <ul id="announcementlist" class="simple-list"
+      {% if view.announcements|length == 0 %}class="hide"{% endif %}
       >
     {% for announcement in view.announcements %}
     {% include "djinn_announcements/snippets/announcement.html" with object=announcement %}
     {% endfor %}
   </ul>
   
-  {% if view.announcements|length = 0 %}
+  {% if view.announcements|length == 0 %}
   
   <div class="alert alert-info" id="announcements-alert">
     {% trans "No announcements" %}

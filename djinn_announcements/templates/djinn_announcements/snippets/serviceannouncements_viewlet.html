@@ -32,7 +32,7 @@
          href="{% url 'djinn_announcements_view_serviceannouncement' announcement.id announcement.slug %}" >
         {{ announcement.title }}
       </a>
-      <time class="time">{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</time>
+      <time class="time">{{ announcement.start_date|naturalday:_("MONTH_DAY_FORMAT") }} {{ announcement.start_date|time }} {% if announcement.end_date %}- {{ announcement.end_date|naturalday:_("MONTH_DAY_FORMAT") }} {{ announcement.end_date|time }}{% endif %}</time>
       <div class="alert-update">
       {% if announcement.status > -1 %}
         <em class="{{ announcement.status|statusclass }}">{{ announcement.formatted_status }}</em>

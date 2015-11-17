@@ -1,12 +1,12 @@
 {% load humanize djinn_contenttypes auth_tags i18n %}
 
 <li class="announcement editable">
-  <time>{{ object.created|naturalday:_("MONTH_DAY_FORMAT") }}</time>
   <a data-target="#MyModal"
      href="{% url 'djinn_announcements_view_announcement' object.id object.slug %}?modal=1"
      data-toggle="modal">
     {{ object.title|abbreviate:"50" }}
   </a>
+  <time class="time">{{ object.created|naturalday:_("MONTH_DAY_FORMAT") }}</time>
   {% ifpermission object request.user contenttypes.change_contenttype %}
   <span class="controls">
     <a class="edit-inline"

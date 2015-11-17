@@ -171,7 +171,10 @@ msgstr "Storingen/werkzaamheden"
 #: templates/djinn_announcements/snippets/announcement.html:4
 #: templates/djinn_announcements/snippets/announcements.html:13
 msgid "MONTH_DAY_FORMAT"
-msgstr ""
+msgstr "j F Y"
+
+msgid "MONTH_DAY_TIME_FORMAT"
+msgstr "j F Y H:i"
 
 #: templates/djinn_announcements/snippets/announcement.html:14
 msgid "Edit announcement"

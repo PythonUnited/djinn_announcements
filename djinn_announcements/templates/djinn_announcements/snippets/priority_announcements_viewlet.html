@@ -18,7 +18,7 @@
       </h1>
     </header>
     
-    <div class="time">{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</div>
+    <div class="time">{{ announcement.start_date|naturalday:_("MONTH_DAY_FORMAT") }} {{ announcement.start_date|time }} {% if announcement.end_date %}- {{ announcement.end_date|naturalday:_("MONTH_DAY_FORMAT") }} {{ announcement.end_date|time }}{% endif %}</div>
     {{ announcement.text|safe }}
 
     <div class="alert-update">
