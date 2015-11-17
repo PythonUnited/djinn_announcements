@@ -8,6 +8,7 @@ from djinn_contenttypes.forms.fields import NoScriptCharField
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.settings import SERVICEANNOUNCEMENT_STATUS_VOCAB, \
     ANNOUNCEMENT_PRIORITY_VOCAB
+from djinn_announcements import settings
 
 
 class ServiceAnnouncementForm(BaseSharingForm):
@@ -30,7 +31,7 @@ class ServiceAnnouncementForm(BaseSharingForm):
         label=_("Start date"),
         widget=forms.DateTimeInput(
             attrs={'class': 'datetime'},
-            format="%d-%m-%Y %H:%M"
+            format=settings.DEFAULT_DATETIME_INPUT_FORMAT
         )
     )
 
@@ -40,7 +41,7 @@ class ServiceAnnouncementForm(BaseSharingForm):
         required=False,
         widget=forms.DateTimeInput(
             attrs={'class': 'datetime'},
-            format="%d-%m-%Y %H:%M"
+            format=settings.DEFAULT_DATETIME_INPUT_FORMAT
             )
         )
 

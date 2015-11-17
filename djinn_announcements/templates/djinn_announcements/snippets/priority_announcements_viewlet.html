@@ -1,13 +1,10 @@
-{% load auth_tags %}
+{% load auth_tags djinn_announcements_tags humanize %}
 
 {% if view.announcements %}
 
-<section id="priority-announcements">
-  
   {% for announcement in view.announcements %}
-  <div class="alert alert-error editmode">
     <header>
-      <h2>
+      <h1>
         <a href="{% url 'djinn_announcements_view_serviceannouncement' announcement.pk announcement.slug %}">
           {{ announcement.title }}
         </a>
@@ -18,20 +15,26 @@
           </a>
         </span>
         {% endifpermission %}
-      </h2>
+      </h1>
     </header>
     
-    <time>{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</time>
+    <div class="time">{{ announcement.start_date }} {% if announcement.end_date %}- {{ announcement.end_date }}{% endif %}</div>
     {{ announcement.text|safe }}
 
-    {% for update in announcement.updates.all %}
-    <div class="announcementupdate">
-      <time>Update {{ update.date }}</time>
-      {{ update.text|safe }}
+    <div class="alert-update">
+      {% if announcement.status > -1 %}
+        <em class="{{ announcement.status|statusclass }}">{{ announcement.formatted_status }}</em>
+      {% endif %}
     </div>
+    {% if announcement.updates.exists %}
+    <dl>
+    {% for update in announcement.updates.all %}
+      <dt>Update {{ forloop.counter }}: {{ update.date|naturalday:_("MONTH_DAY_FORMAT") }}, {{ update.date|time }}</dt>
+      <dd>{{ update.text|safe }}</dd>
     {% endfor %}
-  </div>
+    </dl>
+    {% endif %}
+
   {% endfor %}
 
-</section>
 {% endif %}
