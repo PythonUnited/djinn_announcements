@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: djinn_announcements\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-18 23:08+0100\n"
+"POT-Creation-Date: 2015-11-18 23:22+0100\n"
 "PO-Revision-Date: 2014-12-10 20:47+0100\n"
 "Last-Translator:   <j.barkhof@provinciegroningen.nl>\n"
 "Language-Team: Djinn <djinn@pythonunited.com>\n"
@@ -101,7 +101,6 @@ msgid "announcements"
 msgstr "Mededelingen"
 
 #: models/serviceannouncement.py:18
-#, fuzzy
 msgid "Remove the content after publication to has past"
 msgstr "Verwijder deze storing/werkzaamheid na het verstrijken van deze datum"
 
@@ -184,10 +183,8 @@ msgid "Announcements"
 msgstr "Mededelingen"
 
 #: templates/djinn_announcements/snippets/announcements_viewlet.html:21
-#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:19
-#, fuzzy
-msgid "tooltip-add-serviceannouncement"
-msgstr "Storingen/werkzaamheden toevoegen"
+msgid "tooltip-add-announcement"
+msgstr "Mededeling toevoegen"
 
 #: templates/djinn_announcements/snippets/announcements_viewlet.html:40
 #: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:70
@@ -199,8 +196,11 @@ msgid "Service announcements"
 msgstr "Storingen/werkzaamheden"
 
 #: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:13
-#, fuzzy
 msgid "Add service announcement"
+msgstr "Storingen/werkzaamheden toevoegen"
+
+#: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:19
+msgid "tooltip-add-serviceannouncement"
 msgstr "Storingen/werkzaamheden toevoegen"
 
 #: templates/djinn_announcements/snippets/serviceannouncements_viewlet.html:42

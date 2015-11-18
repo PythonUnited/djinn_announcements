@@ -1,3 +1,7 @@
+1.4.7
+=====
+* more translation stuff
+
 1.4.6
 =====
 * added translations
