@@ -3,7 +3,7 @@
 <section id="announcements" class="editmode">
   
   <header>
-    <h1>{% trans "Announcements" %}</h1>
+    <h1>{% trans "Announcements" %}
       
       {% ifpermission "" request.user 'djinn_announcements.add_announcement' %}
       <span class="controls">
@@ -23,7 +23,7 @@
         </div>
       </span>
       {% endifpermission %}
-    </h2>
+    </h1>
   </header>
 
   <ul id="announcementlist" class="simple-list"
