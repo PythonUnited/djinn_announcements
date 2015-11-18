@@ -1,4 +1,4 @@
-1.4.4
+1.4.5
 =====
 * functional changes 
 * django 1.8 compatibility
