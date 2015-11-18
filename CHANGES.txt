@@ -1,3 +1,7 @@
+1.4.6
+=====
+* added translations
+
 1.4.5
 =====
 * functional changes 
