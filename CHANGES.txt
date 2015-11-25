@@ -1,3 +1,7 @@
+1.4.8
+=====
+* ordering on start_date
+
 1.4.7
 =====
 * more translation stuff
