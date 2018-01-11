@@ -1,12 +1,12 @@
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url
+from django.urls import include
 from djinn_contenttypes.views.utils import generate_model_urls
-from views.announcementviewlet import AnnouncementViewlet, \
+from .views.announcementviewlet import AnnouncementViewlet, \
     PriorityAnnouncementViewlet, ServiceAnnouncementViewlet
-from models import ServiceAnnouncement, Announcement, AnnouncementUpdate
+from .models import ServiceAnnouncement, Announcement, AnnouncementUpdate
 
 
-_urlpatterns = patterns(
-    "",
+_urlpatterns = [
 
     # Viewlet
     url(r"^$",
@@ -20,13 +20,11 @@ _urlpatterns = patterns(
     url(r"^service$",
         ServiceAnnouncementViewlet.as_view(),
         name="djinn_service_announcements"),
-    )
+]
 
-urlpatterns = patterns(
-    '',
-
-    (r'^announcements/', include(_urlpatterns)),
-    (r'^announcements/', include(generate_model_urls(Announcement))),
-    (r'^announcements/', include(generate_model_urls(ServiceAnnouncement))),
-    (r'^announcements/', include(generate_model_urls(AnnouncementUpdate))),
-)
+urlpatterns = [
+    url(r'^announcements/', include(_urlpatterns)),
+    url(r'^announcements/', include(generate_model_urls(Announcement))),
+    url(r'^announcements/', include(generate_model_urls(ServiceAnnouncement))),
+    url(r'^announcements/', include(generate_model_urls(AnnouncementUpdate))),
+]

@@ -6,7 +6,7 @@
 
 {% block formfields %}
 
-{{ form.lala }}
+{#{{ form.lala }}#}
 
 {{ form.title|bootstrap }}
 
@@ -38,7 +38,7 @@
     <h2>{% trans "Updates" %}</h2>
   </header>
 
-  {% for form in updatesform.forms %}
+  {% for uform in updatesform.forms %}
   <div class="announcementupdate update">
     <header>
       <h2>{% trans "Update" %} {{ forloop.counter }}
@@ -51,7 +51,7 @@
     </header>
 
     <div class="update-options">
-    {{ form }}
+    {{ uform }}
     </div>
   </div>
   {% endfor %}

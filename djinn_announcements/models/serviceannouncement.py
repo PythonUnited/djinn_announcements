@@ -2,7 +2,7 @@ from datetime import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
-from announcement import Announcement
+from .announcement import Announcement
 from djinn_contenttypes.registry import CTRegistry
 
 

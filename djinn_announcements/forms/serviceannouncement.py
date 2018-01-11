@@ -1,4 +1,4 @@
-from urllib import unquote_plus
+from urllib.parse import unquote_plus
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 from markupfield.widgets import MarkupTextarea

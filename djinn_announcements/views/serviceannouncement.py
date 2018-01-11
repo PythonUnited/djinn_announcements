@@ -53,13 +53,16 @@ class UpdateFormMixin(object):
             is_valid = False
             form_class = self.get_form_class()
             form = self.get_form(form_class)
+            ctx['form'] = form
             ctx['updatesform'] = formset
 
             def to_label(err):
 
                 return (formset.forms[0].fields[err[0]].label, err[1])
 
-            ctx['errors'] = map(to_label, formset.errors[0].items())
+            # MJB map
+            ctx['errors'] = [
+                to_label(erro) for erro in formset.errors[0].items()]
 
         if not is_valid:
             return self.render_to_response(ctx)
@@ -71,9 +74,11 @@ class ServiceAnnouncementCreateView(UpdateFormMixin, CreateView):
 
     model = ServiceAnnouncement
     form_class = ServiceAnnouncementForm
+    template_name = 'djinn_announcements/serviceannouncement_add.html'
 
 
 class ServiceAnnouncementUpdateView(UpdateFormMixin, UpdateView):
 
     model = ServiceAnnouncement
     form_class = ServiceAnnouncementForm
+    template_name = 'djinn_announcements/serviceannouncement_edit.html'

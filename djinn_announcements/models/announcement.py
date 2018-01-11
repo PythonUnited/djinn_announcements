@@ -21,6 +21,8 @@ class Announcement(BaseContent):
 
         return self.title
 
+    __str__ = __unicode__
+
     @property
     def formatted_status(self):
 

@@ -3,14 +3,15 @@ from markupfield.fields import MarkupField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from djinn_contenttypes.models.base import FKContentMixin
-from announcement import Announcement
+from .announcement import Announcement
 
 
 class AnnouncementUpdate(models.Model, FKContentMixin):
 
     date = models.DateTimeField(_('Date'), default=datetime.now)
     text = MarkupField(_('Text'), markup_type='plain', null=True, blank=True)
-    announcement = models.ForeignKey(Announcement, related_name="updates")
+    announcement = models.ForeignKey(
+        Announcement, related_name="updates", on_delete=models.CASCADE)
 
     class Meta:
         app_label = 'djinn_announcements'
