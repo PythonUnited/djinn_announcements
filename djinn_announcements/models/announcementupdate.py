@@ -13,6 +13,10 @@ class AnnouncementUpdate(models.Model, FKContentMixin):
     announcement = models.ForeignKey(
         Announcement, related_name="updates", on_delete=models.CASCADE)
 
+    @property
+    def ct_name(self):
+        return self.__class__.__name__.lower()
+
     class Meta:
         app_label = 'djinn_announcements'
         ordering = ('date', )
