@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from djinn_forms.templatetags.djinn_forms import pg_strip_filter
+from djinn_contenttypes.templatetags.djinn_contenttypes import pg_strip_filter
 from markupfield.widgets import MarkupTextarea
 from djinn_contenttypes.forms.base import PartialUpdateMixin
 from djinn_announcements.models.announcementupdate import AnnouncementUpdate
