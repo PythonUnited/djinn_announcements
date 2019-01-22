@@ -1,9 +1,9 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
+from djinn_forms.templatetags.djinn_forms import pg_strip_filter
 from markupfield.widgets import MarkupTextarea
 from djinn_contenttypes.forms.base import PartialUpdateMixin
 from djinn_announcements.models.announcementupdate import AnnouncementUpdate
-from sanitizer.templatetags.sanitizer import strip_filter
 
 
 class AnnouncementUpdateForm(PartialUpdateMixin, forms.ModelForm):
@@ -33,7 +33,7 @@ class AnnouncementUpdateForm(PartialUpdateMixin, forms.ModelForm):
 
         value = self.cleaned_data['text'] or ""
 
-        return strip_filter(value)
+        return pg_strip_filter(value)
 
     class Meta:
         model = AnnouncementUpdate
