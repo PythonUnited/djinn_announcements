@@ -9,6 +9,7 @@ class AnnouncementUpdateInline(admin.TabularInline):
 
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = ('title', )
+    raw_id_fields = ['creator', 'changed_by', 'parentusergroup']
     search_fields = ['title']
     inlines = [ AnnouncementUpdateInline, ]
 

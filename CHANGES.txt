@@ -1,3 +1,5 @@
+* added raw_id_fields to admin for performance
+
 1.4.8
 =====
 * ordering on start_date
