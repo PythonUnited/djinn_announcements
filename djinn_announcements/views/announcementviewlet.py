@@ -3,9 +3,10 @@ from djinn_announcements.models.announcement import Announcement
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.settings import SHOW_N_ANNOUNCEMENTS, \
     SHOW_N_SERVICEANNOUNCEMENTS
+from djinn_contenttypes.views.base import DesignVersionMixin
 
 
-class AnnouncementViewlet(TemplateView):
+class AnnouncementViewlet(DesignVersionMixin, TemplateView):
 
     template_name = "djinn_announcements/snippets/announcements_viewlet.html"
 
