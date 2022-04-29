@@ -38,7 +38,7 @@ msgstr "Annuleren"
 #: forms/announcement.py:22
 #: templates/djinn_announcements/snippets/announcements_viewlet.html:12
 msgid "Add announcement"
-msgstr "Aankondiging toevoegen"
+msgstr "Mededeling toevoegen"
 
 #: forms/announcementupdate.py:12 models/announcementupdate.py:11
 msgid "Date"
