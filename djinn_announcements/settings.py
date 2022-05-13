@@ -14,6 +14,7 @@ ANNOUNCEMENT_PRIORITY = {0: _("Normal"), 1: _("High")}
 ANNOUNCEMENT_PRIORITY_VOCAB = sorted(ANNOUNCEMENT_PRIORITY.items())
 
 STATUS_CLASSES = {0: "important", 20: "success", 10: "warning"}
+STATUS_CLASSES_v3 = {0: "bg-red-100", 20: "bg-green-100", 10: "bg-yellow-100"}
 
 SHOW_N_ANNOUNCEMENTS = None
 SHOW_N_SERVICEANNOUNCEMENTS = 5
