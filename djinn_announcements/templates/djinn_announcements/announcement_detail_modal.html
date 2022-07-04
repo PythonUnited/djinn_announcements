@@ -10,12 +10,16 @@
 
 {% block body %}
 
-{{ object.text|safe|wordwrap:80 }}
+<section class="intro mt-2">
+    {{ object.text|safe|wordwrap:80 }}
+</section>
 
+<section class="details mt-2">
 <dl>
   <dt>{% trans "Published_on" %}:</dt><dd>{{ object.created }}</dd>
   <dt>{% trans "Author" %}:</dt><dd>{{ object.creator.profile }}</dd>
 </dl>
+</section>
 
 {% if object.updates.all.exists %}  
 <section id="updates">

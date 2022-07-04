@@ -6,11 +6,11 @@
 
 {% block content %}
 
-<section class="intro">
+<section class="intro mt-2">
   {{ object.text|safe }}
 </section>
 
-<section class="details">
+<section class="details mt-2">
   <dl>
     <dt>{% trans "Start date" %}</dt><dd>{{ object.start_date }}</dd>
     {% if object.end_date %}
