@@ -156,7 +156,7 @@ msgstr "Update"
 
 #: templates/djinn_announcements/serviceannouncement_edit.html:47
 msgid "Remove"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
 #: templates/djinn_announcements/serviceannouncement_overview_item.html:31
 msgid "Serviceannouncement"
