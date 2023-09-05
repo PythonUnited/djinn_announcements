@@ -3,7 +3,9 @@ from django.utils.translation import ugettext_lazy as _
 from markupfield.fields import MarkupField
 from djinn_contenttypes.registry import CTRegistry
 from djinn_contenttypes.models.base import BaseContent
-from djinn_announcements.settings import ANNOUNCEMENT_STATUS
+from djinn_announcements.settings import ANNOUNCEMENT_STATUS, \
+    ANNOUNCEMENT_STATUS_CLOSED, ANNOUNCEMENT_PRIORITY_HIGH, \
+    ANNOUNCEMENT_PRIORITY_NORMAL
 
 
 class Announcement(BaseContent):
@@ -29,6 +31,14 @@ class Announcement(BaseContent):
         """ Format according to vocabulary """
 
         return ANNOUNCEMENT_STATUS.get(self.status, "")
+
+    def save(self, *args, **kwargs):
+
+        if self.status == ANNOUNCEMENT_STATUS_CLOSED and \
+                self.priority == ANNOUNCEMENT_PRIORITY_HIGH:
+            self.priority = ANNOUNCEMENT_PRIORITY_NORMAL
+
+        return super().save(*args, **kwargs)
 
     class Meta:
         app_label = 'djinn_announcements'

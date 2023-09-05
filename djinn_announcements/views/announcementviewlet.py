@@ -2,7 +2,7 @@ from django.views.generic import TemplateView
 from djinn_announcements.models.announcement import Announcement
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
 from djinn_announcements.settings import SHOW_N_ANNOUNCEMENTS, \
-    SHOW_N_SERVICEANNOUNCEMENTS
+    SHOW_N_SERVICEANNOUNCEMENTS, ANNOUNCEMENT_PRIORITY_HIGH
 from djinn_contenttypes.views.base import DesignVersionMixin
 
 
@@ -39,7 +39,8 @@ class PriorityAnnouncementViewlet(AnnouncementViewlet):
     def announcements(self):
 
         try:
-            return ServiceAnnouncement.objects.filter(priority=1)[:1]
+            return ServiceAnnouncement.objects.filter(
+                priority=ANNOUNCEMENT_PRIORITY_HIGH)
         except:
             return []
 
@@ -50,13 +51,11 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
 
     def announcements(self, limit=SHOW_N_SERVICEANNOUNCEMENTS):
 
-        try:
-            priority_announcement = ServiceAnnouncement.objects.filter(priority=1)[0].pk
-        except:
-            priority_announcement = -1
-
-        return ServiceAnnouncement.objects.all(). \
-            exclude(pk=priority_announcement).exclude(title="")[:limit]
+        return ServiceAnnouncement.objects.exclude(
+            priority=ANNOUNCEMENT_PRIORITY_HIGH
+        ).exclude(
+            title=""
+        )[:limit]
 
     @property
     def show_more(self, limit=SHOW_N_SERVICEANNOUNCEMENTS):

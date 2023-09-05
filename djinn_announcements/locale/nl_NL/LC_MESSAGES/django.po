@@ -128,13 +128,16 @@ msgstr "Opgelost"
 msgid "In progress"
 msgstr "Wordt aan gewerkt"
 
+msgid "Priority announcements"
+msgstr "Urgente storing"
+
 #: settings.py:12
 msgid "Normal"
 msgstr "Normaal"
 
 #: settings.py:12
 msgid "High"
-msgstr "Hoog"
+msgstr "Urgent"
 
 #: templates/djinn_announcements/announcement_detail.html:12
 #: templates/djinn_announcements/announcement_detail_modal.html:23

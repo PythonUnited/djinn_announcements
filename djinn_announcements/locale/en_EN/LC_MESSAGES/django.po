@@ -30,13 +30,16 @@ msgstr ""
 msgid "In progress"
 msgstr ""
 
+msgid "Priority announcements"
+msgstr ""
+
 #: settings.py:11
 msgid "Normal"
 msgstr ""
 
 #: settings.py:11
 msgid "High"
-msgstr ""
+msgstr "Priority"
 
 #: forms/announcement.py:9
 #, fuzzy

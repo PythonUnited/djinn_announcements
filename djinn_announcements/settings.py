@@ -1,7 +1,15 @@
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-ANNOUNCEMENT_STATUS = {0: _("Open"), 20: _("Closed"), 10: _("In progress")}
+ANNOUNCEMENT_STATUS_OPEN = 0
+ANNOUNCEMENT_STATUS_INPROGRESS = 10
+ANNOUNCEMENT_STATUS_CLOSED = 20
+
+ANNOUNCEMENT_STATUS = {
+    ANNOUNCEMENT_STATUS_OPEN: _("Open"),
+    ANNOUNCEMENT_STATUS_CLOSED: _("Closed"),
+    ANNOUNCEMENT_STATUS_INPROGRESS: _("In progress")
+}
 
 ANNOUNCEMENT_STATUS_VOCAB = (("", "---"), ) + \
     tuple(sorted(list(ANNOUNCEMENT_STATUS.items())[:2]))
@@ -9,12 +17,25 @@ ANNOUNCEMENT_STATUS_VOCAB = (("", "---"), ) + \
 SERVICEANNOUNCEMENT_STATUS_VOCAB = (("", "---"), ) + \
     tuple(sorted(ANNOUNCEMENT_STATUS.items()))
 
-ANNOUNCEMENT_PRIORITY = {0: _("Normal"), 1: _("High")}
+ANNOUNCEMENT_PRIORITY_NORMAL = 0
+ANNOUNCEMENT_PRIORITY_HIGH = 1
+ANNOUNCEMENT_PRIORITY = {
+    ANNOUNCEMENT_PRIORITY_NORMAL: _("Normal"),
+    ANNOUNCEMENT_PRIORITY_HIGH: _("High")
+}
 
 ANNOUNCEMENT_PRIORITY_VOCAB = sorted(ANNOUNCEMENT_PRIORITY.items())
 
-STATUS_CLASSES = {0: "important", 20: "success", 10: "warning"}
-STATUS_CLASSES_v3 = {0: "bg-red-100", 20: "bg-green-100", 10: "bg-yellow-100"}
+STATUS_CLASSES = {
+    ANNOUNCEMENT_STATUS_OPEN: "important",
+    ANNOUNCEMENT_STATUS_CLOSED: "success",
+    ANNOUNCEMENT_STATUS_INPROGRESS: "warning"
+}
+STATUS_CLASSES_v3 = {
+    ANNOUNCEMENT_STATUS_OPEN: "bg-red-100",
+    ANNOUNCEMENT_STATUS_CLOSED: "bg-green-100",
+    ANNOUNCEMENT_STATUS_INPROGRESS: "bg-yellow-100"
+}
 
 SHOW_N_ANNOUNCEMENTS = None
 SHOW_N_SERVICEANNOUNCEMENTS = 5
