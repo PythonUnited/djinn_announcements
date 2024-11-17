@@ -25,7 +25,8 @@ class ServiceAnnouncement(Announcement):
 
     class Meta:
         app_label = 'djinn_announcements'
-        ordering = ('start_date', )
+        # ordering = ('start_date', )
+        ordering = ('-created', )
 
 
 CTRegistry.register("serviceannouncement",
