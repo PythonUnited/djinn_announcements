@@ -29,10 +29,12 @@ class ServiceAnnouncementForm(BaseSharingForm):
     start_date = forms.DateTimeField(
         # Translators: serviceannouncement edit start_date label
         label=_("Start date"),
+        required=False,
         widget=forms.DateTimeInput(
             attrs={'class': 'datetime'},
             format=settings.DEFAULT_DATETIME_INPUT_FORMAT
-        )
+        ),
+        help_text=_("Tijdstip waarop de dienstverlening is of wordt onderbroken (start storing of onderhoud)")
     )
 
     end_date = forms.DateTimeField(
@@ -42,8 +44,9 @@ class ServiceAnnouncementForm(BaseSharingForm):
         widget=forms.DateTimeInput(
             attrs={'class': 'datetime'},
             format=settings.DEFAULT_DATETIME_INPUT_FORMAT
-            )
-        )
+        ),
+        help_text=_("Naar verwachting eindigt de storing/onderbreking op dit tijdstip")
+    )
 
     remove_after_publish_to = forms.BooleanField(
         # Translators: news remove_after_end label
