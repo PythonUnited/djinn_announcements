@@ -1,3 +1,4 @@
+from django.db.models import F
 from django.views.generic import TemplateView
 from djinn_announcements.models.announcement import Announcement
 from djinn_announcements.models.serviceannouncement import ServiceAnnouncement
@@ -55,6 +56,9 @@ class ServiceAnnouncementViewlet(AnnouncementViewlet):
             priority=ANNOUNCEMENT_PRIORITY_HIGH
         ).exclude(
             title=""
+        ).order_by(
+            # Sorteren op startdatum/tijd (eerst gepland eerst) en niet ingevuld achteraan
+            F('start_date').asc(nulls_last=True)
         )[:limit]
 
     @property
